@@ -132,7 +132,14 @@ dialog input,dialog select,dialog textarea{width:100%;background:var(--bg);borde
 .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.mini{padding:8px 14px;font-size:11px}
 .tabs{display:flex;gap:8px;margin:16px 0 4px}.sm{font:11px 'JetBrains Mono';color:var(--m)}
 .ctl{display:flex;gap:6px}.ctl button{background:none;border:1px solid var(--line);color:var(--a);font:11px 'JetBrains Mono';padding:4px 8px;cursor:pointer}
+
+dialog[open]{display:flex;flex-direction:column;max-height:88vh;overflow:hidden}#bd{overflow-y:auto;overscroll-behavior:contain;flex:1;min-height:0;padding-right:6px}.tabs{flex-wrap:wrap}body:has(dialog[open]){overflow:hidden}
+#cf{display:grid;gap:10px;margin-top:24px;max-width:620px}#cf input,#cf textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--t);padding:12px;font:15px Inter}
+details.event summary{cursor:pointer;font:700 17px 'Space Grotesk';color:var(--t)}#tt{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;border:1px solid var(--a);background:var(--bg2);width:42px;height:42px;display:grid;place-items:center;color:var(--a)}
+.card .tag{display:block;margin-bottom:8px;color:var(--g)}.hp{position:absolute;left:-9999px}.ev .ctl,.cards .ctl{margin-top:12px}
 </style>
+<meta property="og:title" content="MUBC Science Club"><meta property="og:description" content="Explore • Experiment • Engineer"><meta name="theme-color" content="#05070D">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"MUBC Science Club","slogan":"Explore • Experiment • Engineer"}</script>
 </head>
 <body>
 
@@ -182,14 +189,7 @@ dialog input,dialog select,dialog textarea{width:100%;background:var(--bg);borde
 
 <section id="events"><div class="wrap"><div class="rv"><span class="tag">// 05 Events</span><h2>Meet, build, compete</h2>
 <span class="note">[ SAMPLE EVENTS — DATES &amp; LOCATIONS TBA ]</span></div>
-<div class="ev">
-<article class="event rv"><h3>Science Fair</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Showcase experiments and ideas to the whole campus.</p><a href="#contact">Details →</a></article>
-<article class="event rv"><h3>Workshop Series</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Practical, skills-first sessions on tools and methods.</p><a href="#contact">Details →</a></article>
-<article class="event rv"><h3>Hackathon</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Teams race to turn ideas into working prototypes.</p><a href="#hackathon">Register →</a></article>
-<article class="event rv"><h3>Competitions</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Inter-college challenges in science and engineering.</p><a href="#contact">Details →</a></article>
-<article class="event rv"><h3>Seminars</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Talks from researchers, engineers and alumni.</p><a href="#contact">Details →</a></article>
-<article class="event rv"><h3>Research Showcase</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Members present findings and get feedback.</p><a href="#contact">Details →</a></article>
-</div></div></section>
+<div class="ev" id="evl"></div></div></section>
 
 <section id="hackathon"><div class="stripe" style="top:20%"></div><div class="stripe" style="top:80%"></div><div class="wrap" style="position:relative">
 <span class="tag">// 06 Flagship event</span><h2>MUBC Science <span>Hack</span></h2>
@@ -201,6 +201,10 @@ dialog input,dialog select,dialog textarea{width:100%;background:var(--bg);borde
 <p class="lead">MUBC Science Club is a collaborative community of students interested in science, technology, experimentation and innovation. Everyone brings a different strength, and we build better together.</p></div>
 <div class="stats rv"><div class="stat"><strong data-k="members">XX+</strong><span>ACTIVE MEMBERS</span></div><div class="stat"><strong data-k="projects">XX+</strong><span>PROJECTS</span></div><div class="stat"><strong data-k="events">XX+</strong><span>EVENTS</span></div><div class="stat"><strong data-k="workshops">XX+</strong><span>WORKSHOPS</span></div></div></div></section>
 
+<section id="news"><div class="wrap"><div class="rv"><span class="tag">// News</span><h2>Latest news</h2></div><div class="ev" id="nl"></div></div></section>
+<section id="team" style="background:var(--bg2)"><div class="wrap"><div class="rv"><span class="tag">// Team</span><h2>The people behind MUBC</h2></div><div class="cards" id="tl"></div></div></section>
+<section id="faq"><div class="wrap"><div class="rv"><span class="tag">// FAQ</span><h2>Questions</h2></div><div class="ev" id="fl" style="grid-template-columns:1fr"></div></div></section>
+
 <section id="join"><div class="wrap rv"><span class="tag">// 08 Join us</span><h2>Ready to build something?</h2>
 <p>Join MUBC Science Club and turn your curiosity into something real.</p>
 <!-- Swap this href for the future membership form -->
@@ -208,10 +212,11 @@ dialog input,dialog select,dialog textarea{width:100%;background:var(--bg);borde
 
 <section id="contact" style="background:var(--bg2)"><div class="wrap"><div class="rv"><span class="tag">// 09 Contact</span><h2>Get in touch</h2></div>
 <div class="cl rv"><div><small>Email</small><span data-k="email">official-email@placeholder</span></div><div><small>Location</small><span data-k="location">College / location placeholder</span></div>
-<a href="#contact"><small>Facebook</small><span>Link placeholder</span></a><a href="#contact"><small>Instagram</small><span>Link placeholder</span></a><a href="#contact"><small>GitHub</small><span>Link placeholder</span></a><a href="#contact"><small>LinkedIn</small><span>Link placeholder</span></a></div></div></section>
+<a href="#contact" data-l="facebook"><small>Facebook</small><span>Link placeholder</span></a><a href="#contact" data-l="instagram"><small>Instagram</small><span>Link placeholder</span></a><a href="#contact" data-l="github"><small>GitHub</small><span>Link placeholder</span></a><a href="#contact" data-l="linkedin"><small>LinkedIn</small><span>Link placeholder</span></a></div>
+<form id="cf" class="rv"><input class="hp" name="w" tabindex="-1" autocomplete="off" aria-hidden="true"><input name="n" placeholder="Your name" aria-label="Your name" required maxlength="80"><input name="e" type="email" placeholder="Your email" aria-label="Your email" required maxlength="120"><textarea name="m" rows="4" placeholder="Your message" aria-label="Your message" required maxlength="1000"></textarea><div><button class="btn pri" type="submit">Send message</button> <span class="sm" id="cm" role="status"></span></div></form></div></section>
 </main>
 
-<footer><div class="wrap"><b>MUBC SCIENCE CLUB</b><p class="tag" style="margin-top:12px">EXPLORE • EXPERIMENT • ENGINEER</p><p>© 2026 MUBC Science Club. All rights reserved.</p></div></footer>
+<footer><div class="wrap"><b>MUBC SCIENCE CLUB</b><p class="tag" style="margin-top:12px">EXPLORE • EXPERIMENT • ENGINEER</p><p>© 2026 MUBC Science Club. All rights reserved.</p></div></footer><a id="tt" href="#home" aria-label="Back to top">↑</a>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -238,7 +243,10 @@ r();addEventListener('resize',r);f()})();
 <script>
 const DEF=[["engineering","In Progress","Smart Environment Monitor","Sample: sensor network logging temperature, humidity and air quality."],["computing","Prototyping","Vision-Based Object Detection","Sample: a computer vision pipeline that detects and classifies objects."],["experiments","Planning","Automated Lab System","Sample: automating repeatable lab procedures and data capture."],["research","Ongoing","Energy Monitoring System","Sample: measuring and analysing power consumption to find savings."]].map((a,i)=>({id:"s"+i,category:a[0],status:a[1],name:a[2],desc:a[3],link:"",sample:true,ts:i}));
 const RANKS={member:0,contributor:1,editor:2,admin:3};
-const API='https://script.google.com/macros/s/AKfycbwlFblDXBUw72_EQ1PPqAfowFhaRbk6gH0pbpesaxoNzLV1kBmabifydo_AksD281WQEw/exec';
+const API='PASTE_APPS_SCRIPT_WEB_APP_URL_HERE';
+const SCH={event:['Title','Date','Location','Description','Link (https://…)'],team:['Name','Role','Bio','Link (https://…)'],news:['Title','Text','Date'],faq:['Question','Answer']},TA=['Description','Text','Answer','Bio'];
+const DEFEV=['Science Fair|Showcase experiments and ideas to the whole campus.','Workshop Series|Practical, skills-first sessions on tools and methods.','Hackathon|Teams race to turn ideas into working prototypes.','Competitions|Inter-college challenges in science and engineering.','Seminars|Talks from researchers, engineers and alumni.','Research Showcase|Members present findings and get feedback.'].map((s,i)=>({id:'e'+i,type:'event',f1:s.split('|')[0],f2:'TBA',f3:'TBA',f4:s.split('|')[1],f5:'',sample:true}));
+let CT={event:[],team:[],news:[],faq:[]};
 let P=DEF,me=null,tok=null,filt='all';try{tok=sessionStorage.getItem('t')}catch(e){}
 const call=async(a,d={})=>(await fetch(API,{method:'POST',body:JSON.stringify({a,t:tok,...d})})).json();
 const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
@@ -251,7 +259,7 @@ const m2=el('div','meta');m2.append(el('span','',p.category.toUpperCase()));
 a.append(m,el('h3','',p.name),el('p','',p.desc),m2);
 if(ok(p.link)){const b=el('a','btn','View Project');b.href=p.link;b.target='_blank';b.rel='noopener';a.append(b)}else{const b=el('a','btn','View Project');b.href='#projects';a.append(b)}
 if(me&&!p.sample&&can(p)){const c=el('div','ctl');const e=el('button','','EDIT'),d=el('button','','DELETE');e.onclick=()=>form(p);d.onclick=async()=>{if(confirm('Delete this project?'))await call('del',{id:p.id});load()};c.append(e,d);a.append(c)}
-g.append(a)});$('#sn').hidden=!P.some(p=>p.sample)}
+g.append(a)});$('#sn').hidden=!P.some(p=>p.sample);drawC()}
 $$('.filters button').forEach(b=>b.addEventListener('click',()=>{filt=b.dataset.f;draw()}));
 draw();
 const dl=$('#dl'),bd=$('#bd');$('#cl').onclick=()=>dl.close();
@@ -259,16 +267,31 @@ function field(l,t,v,o){const w=document.createElement('div');w.append(el('label
 function form(p){bd.replaceChildren();p=p||{};const n=field('Project name','',p.name),d=field('Description','ta',p.desc),c=field('Category','',p.category||'research',['research','engineering','computing','experiments']),s=field('Status','',p.status||'Planning',['Planning','Prototyping','In Progress','Ongoing','Completed']),l=field('Link (https://…)','url',p.link);
 const b=el('button','btn pri mini','Save project');b.onclick=async()=>{if(!n.value.trim())return;const id=p.id||('p'+Date.now().toString(36)),o={name:n.value.trim().slice(0,80),desc:d.value.trim().slice(0,300),category:c.value,status:s.value,link:ok(l.value)?l.value:'',owner:p.owner||me.username,ts:p.ts||Date.now()};try{const r=await call('save',{id,p:o});if(!r.ok)throw 0;dl.close();load()}catch(e){bd.append(el('p','sm','Save refused: your account lacks write access.'))}};
 const r=el('div','row');r.append(b);bd.append(r);if(!dl.open)dl.showModal()}
-async function site(){bd.replaceChildren();const ks=['members','projects','events','workshops','email','location'],ins={};ks.forEach(k=>ins[k]=field(k,'',(document.querySelector('[data-k='+k+']')||{}).textContent));
-const b=el('button','btn pri mini','Save site settings');b.onclick=async()=>{const o={};ks.forEach(k=>o[k]=ins[k].value.trim().slice(0,80));const r=await call('settings',{s:o});b.textContent=r.ok?'Saved ✓':'Failed';load()};bd.append(b)}
+async function site(){bd.replaceChildren();const ks=['members','projects','events','workshops','email','location',...SOC],ins={};ks.forEach(k=>ins[k]=field(k,'',S[k]||(SOC.includes(k)?'':(document.querySelector('[data-k='+k+']')||{}).textContent)));
+const b=el('button','btn pri mini','Save site settings');b.onclick=async()=>{const o={};ks.forEach(k=>o[k]=ins[k].value.trim().slice(0,200));const r=await call('settings',{s:o});b.textContent=r.ok?'Saved ✓':'Failed';load()};bd.append(b)}
 async function team(){bd.replaceChildren();const r=await call('users'),u=field('Username (3-20 chars)',''),pw=field('Password (8+, leave blank to keep)',''),rl=field('Rank','','editor',['contributor','editor','admin']);pw.type='password';
 const m=el('p','sm'),b=el('button','btn pri mini','Create / update user');b.onclick=async()=>{const x=await call('setUser',{u:u.value.trim(),pw:pw.value,role:rl.value});if(x.ok)team();else m.textContent=x.err||'Failed'};bd.append(b,m);
 (r.users||[]).forEach(x=>{const w=el('div','row');w.append(el('span','sm',x.username+' — '+x.role));const d=el('button','btn mini','Remove');d.onclick=async()=>{if(confirm('Remove '+x.username+'?')){await call('delUser',{u:x.username});team()}};w.append(d);bd.append(w)})}
 function login(){bd.replaceChildren();$('#tabs').replaceChildren();$('#who').textContent='Staff sign-in';const u=field('Username',''),p=field('Password','');p.type='password';const m=el('p','sm'),b=el('button','btn pri mini','Sign in');
 b.onclick=async()=>{b.disabled=true;let r;try{r=await call('login',{u:u.value.trim(),pw:p.value})}catch(e){r={err:'Cannot reach the database. Check the API URL.'}}b.disabled=false;if(r.token){tok=r.token;me=r.user;try{sessionStorage.setItem('t',tok)}catch(e){}panel();draw()}else m.textContent=r.err||'Login failed'};bd.append(b,m)}
 function panel(){$('#who').replaceChildren(el('span','rk',me.role.toUpperCase()),document.createTextNode(' '+me.username));const t=$('#tabs');t.replaceChildren();const add=(l,f)=>{const b=el('button','btn mini',l);b.onclick=f;t.append(b)},R=RANKS[me.role];
-if(R>=1)add('Add project',()=>form());if(R>=3){add('Site settings',site);add('Users',team)}add('Sign out',async()=>{await call('logout');tok=me=null;try{sessionStorage.removeItem('t')}catch(e){}draw();login()});bd.replaceChildren(el('p','sm','Choose an action above.'))}
-async function load(){if(!API.startsWith('http'))return;try{const r=await call('list');P=r.projects&&r.projects.length?r.projects:DEF;const s=r.settings||{};for(const k in s)document.querySelectorAll('[data-k='+k+']').forEach(e=>e.textContent=s[k]);if(tok&&!me){const w=await call('me');if(w.user)me=w.user;else tok=null}draw()}catch(e){}}
+if(R>=1)add('Add project',()=>form());if(R>=2){add('Add event',()=>cform('event'));add('Add news',()=>cform('news'));add('Add FAQ',()=>cform('faq'))}if(R>=3){add('Add team member',()=>cform('team'));add('Site settings',site);add('Users',team);add('Messages',msgs)}add('Sign out',async()=>{await call('logout');tok=me=null;try{sessionStorage.removeItem('t')}catch(e){}draw();login()});bd.replaceChildren(el('p','sm','Choose an action above.'))}
+const S={},SOC=['facebook','instagram','github','linkedin'];
+async function load(){if(!API.startsWith('http'))return;try{const r=await call('list');P=r.projects&&r.projects.length?r.projects:DEF;CT={event:[],team:[],news:[],faq:[]};(r.content||[]).forEach(c=>CT[c.type]&&CT[c.type].push(c));Object.assign(S,r.settings||{});
+for(const k in S){if(SOC.includes(k)){const a=document.querySelector('[data-l='+k+']');if(a&&ok(S[k])){a.href=S[k];a.target='_blank';a.rel='noopener';a.querySelector('span').textContent=S[k].replace(/^https?:\/\//,'')}}else document.querySelectorAll('[data-k='+k+']').forEach(e=>{if(S[k])e.textContent=S[k]})}
+if(tok&&!me){const w=await call('me');if(w.user)me=w.user;else tok=null}draw()}catch(e){}}
+const Rk=()=>me?RANKS[me.role]:0;
+function ctl(t,it,min){if(!me||it.sample||Rk()<min)return null;const c=el('div','ctl'),e=el('button','','EDIT'),d=el('button','','DELETE');e.onclick=()=>cform(t,it);d.onclick=async()=>{if(confirm('Delete this item?')){await call('cdel',{id:it.id});load()}};c.append(e,d);return c}
+function lnk(u,t){if(!ok(u))return null;const a=el('a','',t);a.href=u;a.target='_blank';a.rel='noopener';a.style.cssText='font:12px JetBrains Mono,monospace;color:var(--g)';return a}
+function drawC(){const L=(t,box,min,rd,def)=>{const g=$(box);g.replaceChildren();let a=CT[t];if(!a.length&&def)a=def;a.forEach(it=>{const n=rd(it),c=ctl(t,it,min);if(c)n.append(c);g.append(n)});if(!a.length&&Rk()>=min)g.append(el('p','sm','Nothing here yet. Use the Staff console to add items.'));const s=g.closest('section');s.hidden=!a.length&&Rk()<min};
+L('event','#evl',2,it=>{const a=el('article','event'),m=el('div','meta');m.append(el('span','','DATE: '+it.f2),el('span','','LOC: '+it.f3));a.append(el('h3','',it.f1),m,el('p','',it.f4));const l=lnk(it.f5,'Register / Details →');if(l)a.append(l);return a},DEFEV);
+L('news','#nl',2,it=>{const a=el('article','event'),m=el('div','meta');m.append(el('span','',it.f3));a.append(m,el('h3','',it.f1),el('p','',it.f2));return a});
+L('team','#tl',3,it=>{const a=el('article','card');a.append(el('h3','',it.f1),el('span','tag',it.f2),el('p','',it.f3));const l=lnk(it.f4,'Profile →');if(l)a.append(l);return a});
+L('faq','#fl',2,it=>{const a=el('details','event');a.append(el('summary','',it.f1),el('p','',it.f2));return a})}
+function cform(t,it){bd.replaceChildren();it=it||{};const ins=SCH[t].map((l,i)=>field(l,TA.includes(l)?'ta':'',it['f'+(i+1)])),m=el('p','sm'),b=el('button','btn pri mini','Save');
+b.onclick=async()=>{if(!ins[0].value.trim())return;const r=await call('csave',{id:it.id||('c'+Date.now().toString(36)),type:t,f:ins.map(i=>i.value.trim())});if(r.ok){dl.close();load()}else m.textContent=r.err||'Failed'};const w=el('div','row');w.append(b);bd.append(w,m);if(!dl.open)dl.showModal()}
+async function msgs(){bd.replaceChildren();const r=await call('messages');(r.messages||[]).forEach(x=>{const w=el('div','event');w.append(el('h3','',x.name+' · '+x.email),el('p','',x.message));const d=el('button','btn mini','Delete');d.onclick=async()=>{await call('delMsg',{id:x.id});msgs()};w.append(d);bd.append(w)});if(!(r.messages||[]).length)bd.append(el('p','sm','No messages yet.'))}
+$('#cf').onsubmit=async e=>{e.preventDefault();const f=e.target,b=$('#cm');if(!API.startsWith('http')){b.textContent='Form not connected yet.';return}try{const r=await call('contact',{n:f.n.value,e:f.e.value,m:f.m.value,w:f.w.value});b.textContent=r.ok?'Message sent ✓':(r.err||'Failed');if(r.ok)f.reset()}catch(x){b.textContent='Could not send.'}};
 $('#sb').onclick=e=>{e.preventDefault();if(!dl.open)dl.showModal();me?panel():login()};
 load();
 </script>
