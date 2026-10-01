@@ -243,7 +243,7 @@ r();addEventListener('resize',r);f()})();
 <script>
 const DEF=[["engineering","In Progress","Smart Environment Monitor","Sample: sensor network logging temperature, humidity and air quality."],["computing","Prototyping","Vision-Based Object Detection","Sample: a computer vision pipeline that detects and classifies objects."],["experiments","Planning","Automated Lab System","Sample: automating repeatable lab procedures and data capture."],["research","Ongoing","Energy Monitoring System","Sample: measuring and analysing power consumption to find savings."]].map((a,i)=>({id:"s"+i,category:a[0],status:a[1],name:a[2],desc:a[3],link:"",sample:true,ts:i}));
 const RANKS={member:0,contributor:1,editor:2,admin:3};
-const API='PASTE_APPS_SCRIPT_WEB_APP_URL_HERE';
+const API='https://script.google.com/macros/s/AKfycbyNH0lMbdIVLcl8oLDdUdZoBdq2o3nUVKkwOcHwQufAvN97aCb6OydqHxfqxa1mvgC3Dw/exec';
 const SCH={event:['Title','Date','Location','Description','Link (https://…)'],team:['Name','Role','Bio','Link (https://…)'],news:['Title','Text','Date'],faq:['Question','Answer']},TA=['Description','Text','Answer','Bio'];
 const DEFEV=['Science Fair|Showcase experiments and ideas to the whole campus.','Workshop Series|Practical, skills-first sessions on tools and methods.','Hackathon|Teams race to turn ideas into working prototypes.','Competitions|Inter-college challenges in science and engineering.','Seminars|Talks from researchers, engineers and alumni.','Research Showcase|Members present findings and get feedback.'].map((s,i)=>({id:'e'+i,type:'event',f1:s.split('|')[0],f2:'TBA',f3:'TBA',f4:s.split('|')[1],f5:'',sample:true}));
 let CT={event:[],team:[],news:[],faq:[]};
