@@ -242,7 +242,7 @@ r();addEventListener('resize',r);f()})();
 </script>
 <dialog id="dl" aria-labelledby="dt"><h3 id="dt">Staff Console</h3><div id="who" class="sm"></div><div class="tabs" id="tabs"></div><div id="bd"></div><div class="row"><button class="btn mini" id="cl">Close</button></div></dialog>
 <script>
-const DEF=[["engineering","In Progress","Smart Environment Monitor","Sample: sensor network logging temperature, humidity and air quality."],["computing","Prototype","Vision-Based Object Detection","Sample: a computer vision pipeline that detects and classifies objects."],["experiments","Planning","Automated Lab System","Sample: automating repeatable lab procedures and data capture."],["research","Ongoing","Energy Monitoring System","Sample: measuring and analysing power consumption to find savings."]].map((a,i)=>({id:"s"+i,category:a[0],status:a[1],name:a[2],desc:a[3],link:"",sample:true,ts:i}));
+const DEF=[["engineering","Loading...","Loading project...","Loading data from server..."],["computing","Loading...","Loading project...","Loading data from server..."],["experiments","Loading...","Loading project...","Loading data from server..."],["research","Loading...","Loading project...","Loading data from server..."]].map((a,i)=>({id:"s"+i,category:a[0],status:a[1],name:a[2],desc:a[3],link:"",sample:true,ts:i}));
 const RANKS={member:0,contributor:1,editor:2,admin:3};
 const API='https://script.google.com/macros/s/AKfycbzc0TB-w5Z_rlFURXCS4bp6RhrFUcD3SOjKQIYs2X5Dwalu6OFszGeceVVbO0nwqw09qQ/exec';
 const SCH={event:['Title','Date','Location','Description','Link (https://…)'],team:['Name','Role','Bio','Link (https://…)'],news:['Title','Text','Date'],faq:['Question','Answer']},TA=['Description','Text','Answer','Bio'];
