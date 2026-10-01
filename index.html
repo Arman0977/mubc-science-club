@@ -125,7 +125,7 @@ footer p{color:var(--m);font-size:13px;margin:8px 0 0}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark}}
 
-dialog{background:var(--bg2);color:var(--t);border:1px solid var(--a);padding:26px;width:min(620px,94vw);max-height:90vh;overflow:auto}dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog{background:var(--bg2);color:var(--t);border:1px solid var(--a);padding:26px;width:min(780px,96vw);max-height:90vh;overflow:auto}dialog::backdrop{background:rgba(0,0,0,.7)}
 dialog h3{font-size:22px;margin-bottom:6px}dialog label{display:block;font:11px 'JetBrains Mono';letter-spacing:.1em;color:var(--m);margin:12px 0 4px;text-transform:uppercase}
 dialog input,dialog select,dialog textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--t);padding:10px;font:14px Inter}
 .rk{display:inline-block;border:1px solid var(--g);color:var(--g);padding:3px 10px;font:11px 'JetBrains Mono';letter-spacing:.14em}
@@ -137,6 +137,7 @@ dialog[open]{display:flex;flex-direction:column;max-height:88vh;overflow:hidden}
 #cf{display:grid;gap:10px;margin-top:24px;max-width:620px}#cf input,#cf textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--t);padding:12px;font:15px Inter}
 details.event summary{cursor:pointer;font:700 17px 'Space Grotesk';color:var(--t)}#tt{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;border:1px solid var(--a);background:var(--bg2);width:42px;height:42px;display:grid;place-items:center;color:var(--a)}
 .card .tag{display:block;margin-bottom:8px;color:var(--g)}.hp{position:absolute;left:-9999px}.ev .ctl,.cards .ctl{margin-top:12px}
+.lg{display:flex;flex-wrap:wrap;gap:2px 14px;border-bottom:1px solid var(--line);padding:7px 0 7px 8px;font:11px 'JetBrains Mono',monospace;word-break:break-word}.lg .sm{flex-basis:100%}
 </style>
 <meta property="og:title" content="MUBC Science Club"><meta property="og:description" content="Explore • Experiment • Engineer"><meta name="theme-color" content="#05070D">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"MUBC Science Club","slogan":"Explore • Experiment • Engineer"}</script>
@@ -216,7 +217,7 @@ details.event summary{cursor:pointer;font:700 17px 'Space Grotesk';color:var(--t
 <form id="cf" class="rv"><input class="hp" name="w" tabindex="-1" autocomplete="off" aria-hidden="true"><input name="n" placeholder="Your name" aria-label="Your name" required maxlength="80"><input name="e" type="email" placeholder="Your email" aria-label="Your email" required maxlength="120"><textarea name="m" rows="4" placeholder="Your message" aria-label="Your message" required maxlength="1000"></textarea><div><button class="btn pri" type="submit">Send message</button> <span class="sm" id="cm" role="status"></span></div></form></div></section>
 </main>
 
-<footer><div class="wrap"><b>MUBC SCIENCE CLUB</b><p class="tag" style="margin-top:12px">EXPLORE • EXPERIMENT • ENGINEER</p><p>© 2026 MUBC Science Club. All rights reserved.</p></div></footer><a id="tt" href="#home" aria-label="Back to top">↑</a>
+<footer><div class="wrap"><b>MUBC SCIENCE CLUB</b><p class="tag" style="margin-top:12px">EXPLORE • EXPERIMENT • ENGINEER</p><p>© 2026 MUBC Science Club. All rights reserved.</p><p style="font-size:12px">For security, we log basic access data (IP address, device, actions).</p></div></footer><a id="tt" href="#home" aria-label="Back to top">↑</a>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -243,12 +244,13 @@ r();addEventListener('resize',r);f()})();
 <script>
 const DEF=[["engineering","In Progress","Smart Environment Monitor","Sample: sensor network logging temperature, humidity and air quality."],["computing","Prototyping","Vision-Based Object Detection","Sample: a computer vision pipeline that detects and classifies objects."],["experiments","Planning","Automated Lab System","Sample: automating repeatable lab procedures and data capture."],["research","Ongoing","Energy Monitoring System","Sample: measuring and analysing power consumption to find savings."]].map((a,i)=>({id:"s"+i,category:a[0],status:a[1],name:a[2],desc:a[3],link:"",sample:true,ts:i}));
 const RANKS={member:0,contributor:1,editor:2,admin:3};
-const API='https://script.google.com/macros/s/AKfycbyNH0lMbdIVLcl8oLDdUdZoBdq2o3nUVKkwOcHwQufAvN97aCb6OydqHxfqxa1mvgC3Dw/exec';
+const API='https://script.google.com/macros/s/AKfycbzc0TB-w5Z_rlFURXCS4bp6RhrFUcD3SOjKQIYs2X5Dwalu6OFszGeceVVbO0nwqw09qQ/exec';
 const SCH={event:['Title','Date','Location','Description','Link (https://…)'],team:['Name','Role','Bio','Link (https://…)'],news:['Title','Text','Date'],faq:['Question','Answer']},TA=['Description','Text','Answer','Bio'];
 const DEFEV=['Science Fair|Showcase experiments and ideas to the whole campus.','Workshop Series|Practical, skills-first sessions on tools and methods.','Hackathon|Teams race to turn ideas into working prototypes.','Competitions|Inter-college challenges in science and engineering.','Seminars|Talks from researchers, engineers and alumni.','Research Showcase|Members present findings and get feedback.'].map((s,i)=>({id:'e'+i,type:'event',f1:s.split('|')[0],f2:'TBA',f3:'TBA',f4:s.split('|')[1],f5:'',sample:true}));
 let CT={event:[],team:[],news:[],faq:[]};
 let P=DEF,me=null,tok=null,filt='all';try{tok=sessionStorage.getItem('t')}catch(e){}
-const call=async(a,d={})=>(await fetch(API,{method:'POST',body:JSON.stringify({a,t:tok,...d})})).json();
+const ipP=(async()=>{try{const c=new AbortController();setTimeout(()=>c.abort(),3000);return(await(await fetch('https://api.ipify.org?format=json',{signal:c.signal})).json()).ip||''}catch(e){return ''}})();
+const call=async(a,d={})=>(await fetch(API,{method:'POST',body:JSON.stringify({a,t:tok,ip:await ipP,ua:navigator.userAgent.slice(0,120),...d})})).json();
 const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 const ok=u=>/^https?:\/\//.test(u||'');
 const can=p=>{const R=me?RANKS[me.role]:0;return R>=2||(R==1&&p&&p.owner==me.username)};
@@ -275,7 +277,7 @@ const m=el('p','sm'),b=el('button','btn pri mini','Create / update user');b.oncl
 function login(){bd.replaceChildren();$('#tabs').replaceChildren();$('#who').textContent='Staff sign-in';const u=field('Username',''),p=field('Password','');p.type='password';const m=el('p','sm'),b=el('button','btn pri mini','Sign in');
 b.onclick=async()=>{b.disabled=true;let r;try{r=await call('login',{u:u.value.trim(),pw:p.value})}catch(e){r={err:'Cannot reach the database. Check the API URL.'}}b.disabled=false;if(r.token){tok=r.token;me=r.user;try{sessionStorage.setItem('t',tok)}catch(e){}panel();draw()}else m.textContent=r.err||'Login failed'};bd.append(b,m)}
 function panel(){$('#who').replaceChildren(el('span','rk',me.role.toUpperCase()),document.createTextNode(' '+me.username));const t=$('#tabs');t.replaceChildren();const add=(l,f)=>{const b=el('button','btn mini',l);b.onclick=f;t.append(b)},R=RANKS[me.role];
-if(R>=1)add('Add project',()=>form());if(R>=2){add('Add event',()=>cform('event'));add('Add news',()=>cform('news'));add('Add FAQ',()=>cform('faq'))}if(R>=3){add('Add team member',()=>cform('team'));add('Site settings',site);add('Users',team);add('Messages',msgs)}add('Sign out',async()=>{await call('logout');tok=me=null;try{sessionStorage.removeItem('t')}catch(e){}draw();login()});bd.replaceChildren(el('p','sm','Choose an action above.'))}
+if(R>=1)add('Add project',()=>form());if(R>=2){add('Add event',()=>cform('event'));add('Add news',()=>cform('news'));add('Add FAQ',()=>cform('faq'))}if(R>=3){add('Add team member',()=>cform('team'));add('Site settings',site);add('Users',team);add('Messages',msgs);add('Live logs',logsView)}add('Sign out',async()=>{await call('logout');tok=me=null;try{sessionStorage.removeItem('t')}catch(e){}draw();login()});bd.replaceChildren(el('p','sm','Choose an action above.'))}
 const SET={},SOC=['facebook','instagram','github','linkedin'];
 async function load(){if(!API.startsWith('http'))return;try{const r=await call('list');P=r.projects&&r.projects.length?r.projects:DEF;CT={event:[],team:[],news:[],faq:[]};(r.content||[]).forEach(c=>CT[c.type]&&CT[c.type].push(c));Object.assign(SET,r.settings||{});
 for(const k in SET){if(SOC.includes(k)){const a=document.querySelector('[data-l='+k+']');if(a&&ok(SET[k])){a.href=SET[k];a.target='_blank';a.rel='noopener';a.querySelector('span').textContent=SET[k].replace(/^https?:\/\//,'')}}else document.querySelectorAll('[data-k='+k+']').forEach(e=>{if(SET[k])e.textContent=SET[k]})}
@@ -292,8 +294,19 @@ function cform(t,it){bd.replaceChildren();it=it||{};const ins=SCH[t].map((l,i)=>
 b.onclick=async()=>{if(!ins[0].value.trim())return;const r=await call('csave',{id:it.id||('c'+Date.now().toString(36)),type:t,f:ins.map(i=>i.value.trim())});if(r.ok){dl.close();load()}else m.textContent=r.err||'Failed'};const w=el('div','row');w.append(b);bd.append(w,m);if(!dl.open)dl.showModal()}
 async function msgs(){bd.replaceChildren();const r=await call('messages');(r.messages||[]).forEach(x=>{const w=el('div','event');w.append(el('h3','',x.name+' · '+x.email),el('p','',x.message));const d=el('button','btn mini','Delete');d.onclick=async()=>{await call('delMsg',{id:x.id});msgs()};w.append(d);bd.append(w)});if(!(r.messages||[]).length)bd.append(el('p','sm','No messages yet.'))}
 $('#cf').onsubmit=async e=>{e.preventDefault();const f=e.target,b=$('#cm');if(!API.startsWith('http')){b.textContent='Form not connected yet.';return}try{const r=await call('contact',{n:f.elements.n.value,e:f.elements.e.value,m:f.elements.m.value,w:f.elements.w.value});b.textContent=r.ok?'Message sent ✓':(r.err||'Failed');if(r.ok)f.reset()}catch(x){b.textContent='Could not send.'}};
+let LG=[],LA=0,LP=false,LF='all';
+const CAT={all:()=>true,logins:r=>['login','logout'].includes(r.action),changes:r=>['save','del','csave','cdel','settings','setUser','delUser'].includes(r.action),denied:r=>r.result.startsWith('DENIED'),visits:r=>r.action=='visit'};
+function lgRow(r){const w=el('div','lg'),bad=r.result.startsWith('DENIED');if(r.role=='admin')w.style.borderLeft='2px solid var(--g)';const a=el('span','',r.action.toUpperCase()+' · '+r.result);a.style.color=bad?'#ff6b6b':'var(--a)';
+w.append(el('span','',new Date(+r.ts).toLocaleString()),el('span','',r.ip),a,el('span','',r.user+' ('+r.role+')'),el('span','sm',r.detail+(r.ua?' | '+r.ua:'')));return w}
+function logsView(){bd.replaceChildren();LG=[];LA=0;LP=false;LF='all';const bar=el('div','row'),sel=el('select'),pb=el('button','btn mini','Pause'),cb=el('button','btn mini','Download CSV'),ls=el('span','sm','● LIVE'),box=el('div');
+['all','logins','changes','denied','visits'].forEach(x=>{const o=el('option','',x);o.value=x;sel.append(o)});sel.style.width='auto';bar.append(sel,pb,cb,ls);box.style.marginTop='12px';bd.append(bar,box);
+const rd=()=>{box.replaceChildren();LG.filter(CAT[LF]).slice(0,300).forEach(r=>box.append(lgRow(r)));if(!box.children.length)box.append(el('p','sm','No entries.'))};
+sel.onchange=()=>{LF=sel.value;rd()};pb.onclick=()=>{LP=!LP;pb.textContent=LP?'Resume':'Pause';ls.textContent=LP?'❚❚ PAUSED':'● LIVE'};
+cb.onclick=()=>{const q=v=>'"'+(/^[=+\-@]/.test(String(v))?"'":'')+String(v).replace(/"/g,'""')+'"',csv=['time,ip,action,user,role,result,detail,device'].concat(LG.map(r=>[new Date(+r.ts).toISOString(),r.ip,r.action,r.user,r.role,r.result,r.detail,r.ua].map(q).join(','))).join('\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='mubc-logs.csv';a.click()};
+const poll=async()=>{if(!document.body.contains(box)){clearInterval(tm);return}if(LP)return;try{const r=await call('logs',{after:LA});if(r.err){ls.textContent=r.err;return}if(r.last<LA)LG=[];LA=r.last;if(r.rows.length){r.rows.forEach(v=>LG.unshift({ts:v[0],ip:v[1],action:v[2],user:v[3],role:v[4],result:v[5],detail:v[6],ua:v[7]}));LG=LG.slice(0,500);rd()}else if(!box.children.length)rd()}catch(e){ls.textContent='offline'}};
+const tm=setInterval(poll,4000);poll()}
 $('#sb').onclick=e=>{e.preventDefault();if(!dl.open)dl.showModal();me?panel():login()};
-load();
+load();try{if(!sessionStorage.getItem('v')){sessionStorage.setItem('v','1');call('visit',{p:location.pathname+location.hash}).catch(()=>{})}}catch(e){}
 </script>
 </body>
 </html>
