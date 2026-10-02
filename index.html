@@ -271,7 +271,7 @@ window.dataReady=new Promise(r=>{window.__dr=r});
 const DEF=[["engineering","Loading...","Loading project...","Loading data from server..."],["computing","Loading...","Loading project...","Loading data from server..."],["experiments","Loading...","Loading project...","Loading data from server..."],["research","Loading...","Loading project...","Loading data from server..."]].map((a,i)=>({id:"s"+i,category:a[0],status:a[1],name:a[2],desc:a[3],link:"",sample:true,ts:i}));
 
 const RANKS={member:0,contributor:1,editor:2,admin:3};
-const API='https://script.google.com/macros/s/AKfycbyxMUOO83QCC-V5Dzh6t2dXkzSuIZUYtD6Iyhq7GK9hKZVArcAQA6eT_82Mpqz1IhTI/exec';
+const API='https://script.google.com/macros/s/AKfycbyxHdMcNF9WtLVzbp6Yjv7d9VBnKoGiROg3DZQwCt3E77IWc2cplDpwDao8OLHDRP-B/exec';
 let LOADING=false,CACHE=null;try{CACHE=JSON.parse(localStorage.getItem('mubc_c'))}catch(e){}LOADING=API.startsWith('http')&&!CACHE;
 const SCH={event:['Title','Date','Location','Description','Link (https://…)'],team:['Name','Role','Bio','Link (https://…)'],news:['Title','Text','Date'],faq:['Question','Answer']},TA=['Description','Text','Answer','Bio'];
 const DEFEV=['Science Fair|Showcase experiments and ideas to the whole campus.','Workshop Series|Practical, skills-first sessions on tools and methods.','Hackathon|Teams race to turn ideas into working prototypes.','Competitions|Inter-college challenges in science and engineering.','Seminars|Talks from researchers, engineers and alumni.','Research Showcase|Members present findings and get feedback.'].map((s,i)=>({id:'e'+i,type:'event',f1:s.split('|')[0],f2:'TBA',f3:'TBA',f4:s.split('|')[1],f5:'',sample:true}));
