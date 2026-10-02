@@ -125,22 +125,14 @@ footer p{color:var(--m);font-size:13px;margin:8px 0 0}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark}}
 
-dialog{background:var(--bg2);color:var(--t);border:1px solid var(--a);padding:26px;width:min(780px,96vw);max-height:90vh;overflow:auto}dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog{background:var(--bg2);color:var(--t);border:1px solid var(--a);padding:26px;width:min(620px,94vw);max-height:90vh;overflow:auto}dialog::backdrop{background:rgba(0,0,0,.7)}
 dialog h3{font-size:22px;margin-bottom:6px}dialog label{display:block;font:11px 'JetBrains Mono';letter-spacing:.1em;color:var(--m);margin:12px 0 4px;text-transform:uppercase}
 dialog input,dialog select,dialog textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--t);padding:10px;font:14px Inter}
 .rk{display:inline-block;border:1px solid var(--g);color:var(--g);padding:3px 10px;font:11px 'JetBrains Mono';letter-spacing:.14em}
 .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.mini{padding:8px 14px;font-size:11px}
 .tabs{display:flex;gap:8px;margin:16px 0 4px}.sm{font:11px 'JetBrains Mono';color:var(--m)}
 .ctl{display:flex;gap:6px}.ctl button{background:none;border:1px solid var(--line);color:var(--a);font:11px 'JetBrains Mono';padding:4px 8px;cursor:pointer}
-
-dialog[open]{display:flex;flex-direction:column;max-height:88vh;overflow:hidden}#bd{overflow-y:auto;overscroll-behavior:contain;flex:1;min-height:0;padding-right:6px}.tabs{flex-wrap:wrap}body:has(dialog[open]){overflow:hidden}
-#cf{display:grid;gap:10px;margin-top:24px;max-width:620px}#cf input,#cf textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--t);padding:12px;font:15px Inter}
-details.event summary{cursor:pointer;font:700 17px 'Space Grotesk';color:var(--t)}#tt{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;border:1px solid var(--a);background:var(--bg2);width:42px;height:42px;display:grid;place-items:center;color:var(--a)}
-.card .tag{display:block;margin-bottom:8px;color:var(--g)}.hp{position:absolute;left:-9999px}.ev .ctl,.cards .ctl{margin-top:12px}
-.lg{display:flex;flex-wrap:wrap;gap:2px 14px;border-bottom:1px solid var(--line);padding:7px 0 7px 8px;font:11px 'JetBrains Mono',monospace;word-break:break-word}.lg .sm{flex-basis:100%}
 </style>
-<meta property="og:title" content="MUBC Science Club"><meta property="og:description" content="Explore • Experiment • Engineer"><meta name="theme-color" content="#05070D">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"MUBC Science Club","slogan":"Explore • Experiment • Engineer"}</script>
 </head>
 <body>
 
@@ -190,7 +182,14 @@ details.event summary{cursor:pointer;font:700 17px 'Space Grotesk';color:var(--t
 
 <section id="events"><div class="wrap"><div class="rv"><span class="tag">// 05 Events</span><h2>Meet, build, compete</h2>
 <span class="note">[ SAMPLE EVENTS — DATES &amp; LOCATIONS TBA ]</span></div>
-<div class="ev" id="evl"></div></div></section>
+<div class="ev">
+<article class="event rv"><h3>Science Fair</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Showcase experiments and ideas to the whole campus.</p><a href="#contact">Details →</a></article>
+<article class="event rv"><h3>Workshop Series</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Practical, skills-first sessions on tools and methods.</p><a href="#contact">Details →</a></article>
+<article class="event rv"><h3>Hackathon</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Teams race to turn ideas into working prototypes.</p><a href="#hackathon">Register →</a></article>
+<article class="event rv"><h3>Competitions</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Inter-college challenges in science and engineering.</p><a href="#contact">Details →</a></article>
+<article class="event rv"><h3>Seminars</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Talks from researchers, engineers and alumni.</p><a href="#contact">Details →</a></article>
+<article class="event rv"><h3>Research Showcase</h3><div class="meta"><span>DATE: TBA</span><span>LOC: TBA</span></div><p>Members present findings and get feedback.</p><a href="#contact">Details →</a></article>
+</div></div></section>
 
 <section id="hackathon"><div class="stripe" style="top:20%"></div><div class="stripe" style="top:80%"></div><div class="wrap" style="position:relative">
 <span class="tag">// 06 Flagship event</span><h2>MUBC Science <span>Hack</span></h2>
@@ -202,23 +201,17 @@ details.event summary{cursor:pointer;font:700 17px 'Space Grotesk';color:var(--t
 <p class="lead">MUBC Science Club is a collaborative community of students interested in science, technology, experimentation and innovation. Everyone brings a different strength, and we build better together.</p></div>
 <div class="stats rv"><div class="stat"><strong data-k="members">XX+</strong><span>ACTIVE MEMBERS</span></div><div class="stat"><strong data-k="projects">XX+</strong><span>PROJECTS</span></div><div class="stat"><strong data-k="events">XX+</strong><span>EVENTS</span></div><div class="stat"><strong data-k="workshops">XX+</strong><span>WORKSHOPS</span></div></div></div></section>
 
-<section id="news"><div class="wrap"><div class="rv"><span class="tag">// News</span><h2>Latest news</h2></div><div class="ev" id="nl"></div></div></section>
-<section id="team" style="background:var(--bg2)"><div class="wrap"><div class="rv"><span class="tag">// Team</span><h2>The people behind MUBC SCIENCE CLUB</h2></div><div class="cards" id="tl"></div></div></section>
-<section id="faq"><div class="wrap"><div class="rv"><span class="tag">// FAQ</span><h2>Questions</h2></div><div class="ev" id="fl" style="grid-template-columns:1fr"></div></div></section>
-
 <section id="join"><div class="wrap rv"><span class="tag">// 08 Join us</span><h2>Ready to build something?</h2>
 <p>Join MUBC Science Club and turn your curiosity into something real.</p>
-<p>Refer to FAQ 08 for guidance.</p>
 <!-- Swap this href for the future membership form -->
 <a class="btn pri big" href="https://drive.google.com/file/d/1-03Jgc8UJa2JoJuvTOxWrsp87ve2kLgz/view?usp=sharing" target="_blank" rel="noopener">Join MUBC Science Club</a></div></section>
 
 <section id="contact" style="background:var(--bg2)"><div class="wrap"><div class="rv"><span class="tag">// 09 Contact</span><h2>Get in touch</h2></div>
 <div class="cl rv"><div><small>Email</small><span data-k="email">official-email@placeholder</span></div><div><small>Location</small><span data-k="location">College / location placeholder</span></div>
-<a href="#contact" data-l="facebook"><small>Facebook</small><span>Link placeholder</span></a><a href="#contact" data-l="instagram"><small>Instagram</small><span>Link placeholder</span></a><a href="#contact" data-l="github"><small>GitHub</small><span>Link placeholder</span></a><a href="#contact" data-l="linkedin"><small>LinkedIn</small><span>Link placeholder</span></a></div>
-<form id="cf" class="rv"><input class="hp" name="w" tabindex="-1" autocomplete="off" aria-hidden="true"><input name="n" placeholder="Your name" aria-label="Your name" required maxlength="80"><input name="e" type="email" placeholder="Your email" aria-label="Your email" required maxlength="120"><textarea name="m" rows="4" placeholder="Your message" aria-label="Your message" required maxlength="1000"></textarea><div><button class="btn pri" type="submit">Send message</button> <span class="sm" id="cm" role="status"></span></div></form></div></section>
+<a href="#contact"><small>Facebook</small><span>Link placeholder</span></a><a href="#contact"><small>Instagram</small><span>Link placeholder</span></a><a href="#contact"><small>GitHub</small><span>Link placeholder</span></a><a href="#contact"><small>LinkedIn</small><span>Link placeholder</span></a></div></div></section>
 </main>
 
-<footer><div class="wrap"><b>MUBC SCIENCE CLUB</b><p class="tag" style="margin-top:12px">EXPLORE • EXPERIMENT • ENGINEER</p><p>© 2026 MUBC Science Club. All rights reserved.</p><p style="font-size:12px"> Created & Designed by Arman Hossain   </p><p style="font-size:12px">For security, we log basic access data (IP address, device, actions).</p></div></footer><a id="tt" href="#home" aria-label="Back to top">↑</a>
+<footer><div class="wrap"><b>MUBC SCIENCE CLUB</b><p class="tag" style="margin-top:12px">EXPLORE • EXPERIMENT • ENGINEER</p><p>© 2026 MUBC Science Club. All rights reserved.</p></div></footer>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -243,15 +236,12 @@ r();addEventListener('resize',r);f()})();
 </script>
 <dialog id="dl" aria-labelledby="dt"><h3 id="dt">Staff Console</h3><div id="who" class="sm"></div><div class="tabs" id="tabs"></div><div id="bd"></div><div class="row"><button class="btn mini" id="cl">Close</button></div></dialog>
 <script>
+
 const DEF=[["engineering","Loading...","Loading project...","Loading data from server..."],["computing","Loading...","Loading project...","Loading data from server..."],["experiments","Loading...","Loading project...","Loading data from server..."],["research","Loading...","Loading project...","Loading data from server..."]].map((a,i)=>({id:"s"+i,category:a[0],status:a[1],name:a[2],desc:a[3],link:"",sample:true,ts:i}));
 const RANKS={member:0,contributor:1,editor:2,admin:3};
-const API='https://script.google.com/macros/s/AKfycbzc0TB-w5Z_rlFURXCS4bp6RhrFUcD3SOjKQIYs2X5Dwalu6OFszGeceVVbO0nwqw09qQ/exec';
-const SCH={event:['Title','Date','Location','Description','Link (https://…)'],team:['Name','Role','Bio','Link (https://…)'],news:['Title','Text','Date'],faq:['Question','Answer']},TA=['Description','Text','Answer','Bio'];
-const DEFEV=['Science Fair|Showcase experiments and ideas to the whole campus.','Workshop Series|Practical, skills-first sessions on tools and methods.','Hackathon|Teams race to turn ideas into working prototypes.','Competitions|Inter-college challenges in science and engineering.','Seminars|Talks from researchers, engineers and alumni.','Research Showcase|Members present findings and get feedback.'].map((s,i)=>({id:'e'+i,type:'event',f1:s.split('|')[0],f2:'TBA',f3:'TBA',f4:s.split('|')[1],f5:'',sample:true}));
-let CT={event:[],team:[],news:[],faq:[]};
+const API='https://script.google.com/macros/s/AKfycbw-qvvl2ARMPu2RFzmpJSB2UnzTOLJVxdfg7mt4diQp4IgW8TTcOZDPxGt6btcV4nnnMQ/exec';
 let P=DEF,me=null,tok=null,filt='all';try{tok=sessionStorage.getItem('t')}catch(e){}
-const ipP=(async()=>{try{const c=new AbortController();setTimeout(()=>c.abort(),3000);return(await(await fetch('https://api.ipify.org?format=json',{signal:c.signal})).json()).ip||''}catch(e){return ''}})();
-const call=async(a,d={})=>(await fetch(API,{method:'POST',body:JSON.stringify({a,t:tok,ip:await ipP,ua:navigator.userAgent.slice(0,120),...d})})).json();
+const call=async(a,d={})=>(await fetch(API,{method:'POST',body:JSON.stringify({a,t:tok,...d})})).json();
 const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 const ok=u=>/^https?:\/\//.test(u||'');
 const can=p=>{const R=me?RANKS[me.role]:0;return R>=2||(R==1&&p&&p.owner==me.username)};
@@ -262,52 +252,26 @@ const m2=el('div','meta');m2.append(el('span','',p.category.toUpperCase()));
 a.append(m,el('h3','',p.name),el('p','',p.desc),m2);
 if(ok(p.link)){const b=el('a','btn','View Project');b.href=p.link;b.target='_blank';b.rel='noopener';a.append(b)}else{const b=el('a','btn','View Project');b.href='#projects';a.append(b)}
 if(me&&!p.sample&&can(p)){const c=el('div','ctl');const e=el('button','','EDIT'),d=el('button','','DELETE');e.onclick=()=>form(p);d.onclick=async()=>{if(confirm('Delete this project?'))await call('del',{id:p.id});load()};c.append(e,d);a.append(c)}
-g.append(a)});$('#sn').hidden=!P.some(p=>p.sample);drawC()}
+g.append(a)});$('#sn').hidden=!P.some(p=>p.sample)}
 $$('.filters button').forEach(b=>b.addEventListener('click',()=>{filt=b.dataset.f;draw()}));
 draw();
 const dl=$('#dl'),bd=$('#bd');$('#cl').onclick=()=>dl.close();
 function field(l,t,v,o){const w=document.createElement('div');w.append(el('label','',l));let i;if(o){i=el('select');o.forEach(x=>{const op=el('option','',x);op.value=x;i.append(op)})}else i=el(t=='ta'?'textarea':'input');if(t=='url')i.type='url';i.value=v||'';w.append(i);bd.append(w);return i}
-function form(p){bd.replaceChildren();p=p||{};const n=field('Project name','',p.name),d=field('Description','ta',p.desc),c=field('Category','',p.category||'research',['research','engineering','computing','experiments']),s=field('Status','',p.status||'Planning',['Planning','Prototype','In Progress','Ongoing','Completed']),l=field('Link (https://…)','url',p.link);
+function form(p){bd.replaceChildren();p=p||{};const n=field('Project name','',p.name),d=field('Description','ta',p.desc),c=field('Category','',p.category||'research',['research','engineering','computing','experiments']),s=field('Status','',p.status||'Planning',['Planning','Prototyping','In Progress','Ongoing','Completed']),l=field('Link (https://…)','url',p.link);
 const b=el('button','btn pri mini','Save project');b.onclick=async()=>{if(!n.value.trim())return;const id=p.id||('p'+Date.now().toString(36)),o={name:n.value.trim().slice(0,80),desc:d.value.trim().slice(0,300),category:c.value,status:s.value,link:ok(l.value)?l.value:'',owner:p.owner||me.username,ts:p.ts||Date.now()};try{const r=await call('save',{id,p:o});if(!r.ok)throw 0;dl.close();load()}catch(e){bd.append(el('p','sm','Save refused: your account lacks write access.'))}};
 const r=el('div','row');r.append(b);bd.append(r);if(!dl.open)dl.showModal()}
-async function site(){bd.replaceChildren();const ks=['members','projects','events','workshops','email','location',...SOC],ins={};ks.forEach(k=>ins[k]=field(k,'',SET[k]||(SOC.includes(k)?'':(document.querySelector('[data-k='+k+']')||{}).textContent)));
-const b=el('button','btn pri mini','Save site settings');b.onclick=async()=>{const o={};ks.forEach(k=>o[k]=ins[k].value.trim().slice(0,200));const r=await call('settings',{s:o});b.textContent=r.ok?'Saved ✓':'Failed';load()};bd.append(b)}
+async function site(){bd.replaceChildren();const ks=['members','projects','events','workshops','email','location'],ins={};ks.forEach(k=>ins[k]=field(k,'',(document.querySelector('[data-k='+k+']')||{}).textContent));
+const b=el('button','btn pri mini','Save site settings');b.onclick=async()=>{const o={};ks.forEach(k=>o[k]=ins[k].value.trim().slice(0,80));const r=await call('settings',{s:o});b.textContent=r.ok?'Saved ✓':'Failed';load()};bd.append(b)}
 async function team(){bd.replaceChildren();const r=await call('users'),u=field('Username (3-20 chars)',''),pw=field('Password (8+, leave blank to keep)',''),rl=field('Rank','','editor',['contributor','editor','admin']);pw.type='password';
 const m=el('p','sm'),b=el('button','btn pri mini','Create / update user');b.onclick=async()=>{const x=await call('setUser',{u:u.value.trim(),pw:pw.value,role:rl.value});if(x.ok)team();else m.textContent=x.err||'Failed'};bd.append(b,m);
 (r.users||[]).forEach(x=>{const w=el('div','row');w.append(el('span','sm',x.username+' — '+x.role));const d=el('button','btn mini','Remove');d.onclick=async()=>{if(confirm('Remove '+x.username+'?')){await call('delUser',{u:x.username});team()}};w.append(d);bd.append(w)})}
 function login(){bd.replaceChildren();$('#tabs').replaceChildren();$('#who').textContent='Staff sign-in';const u=field('Username',''),p=field('Password','');p.type='password';const m=el('p','sm'),b=el('button','btn pri mini','Sign in');
 b.onclick=async()=>{b.disabled=true;let r;try{r=await call('login',{u:u.value.trim(),pw:p.value})}catch(e){r={err:'Cannot reach the database. Check the API URL.'}}b.disabled=false;if(r.token){tok=r.token;me=r.user;try{sessionStorage.setItem('t',tok)}catch(e){}panel();draw()}else m.textContent=r.err||'Login failed'};bd.append(b,m)}
 function panel(){$('#who').replaceChildren(el('span','rk',me.role.toUpperCase()),document.createTextNode(' '+me.username));const t=$('#tabs');t.replaceChildren();const add=(l,f)=>{const b=el('button','btn mini',l);b.onclick=f;t.append(b)},R=RANKS[me.role];
-if(R>=1)add('Add project',()=>form());if(R>=2){add('Add event',()=>cform('event'));add('Add news',()=>cform('news'));add('Add FAQ',()=>cform('faq'))}if(R>=3){add('Add team member',()=>cform('team'));add('Site settings',site);add('Users',team);add('Messages',msgs);add('Live logs',logsView)}add('Sign out',async()=>{await call('logout');tok=me=null;try{sessionStorage.removeItem('t')}catch(e){}draw();login()});bd.replaceChildren(el('p','sm','Choose an action above.'))}
-const SET={},SOC=['facebook','instagram','github','linkedin'];
-async function load(){if(!API.startsWith('http'))return;try{const r=await call('list');P=r.projects&&r.projects.length?r.projects:DEF;CT={event:[],team:[],news:[],faq:[]};(r.content||[]).forEach(c=>CT[c.type]&&CT[c.type].push(c));Object.assign(SET,r.settings||{});
-for(const k in SET){if(SOC.includes(k)){const a=document.querySelector('[data-l='+k+']');if(a&&ok(SET[k])){a.href=SET[k];a.target='_blank';a.rel='noopener';a.querySelector('span').textContent=SET[k].replace(/^https?:\/\//,'')}}else document.querySelectorAll('[data-k='+k+']').forEach(e=>{if(SET[k])e.textContent=SET[k]})}
-if(tok&&!me){const w=await call('me');if(w.user)me=w.user;else tok=null}draw()}catch(e){}}
-function Rk(){return me?RANKS[me.role]:0}
-function ctl(t,it,min){if(!me||it.sample||Rk()<min)return null;const c=el('div','ctl'),e=el('button','','EDIT'),d=el('button','','DELETE');e.onclick=()=>cform(t,it);d.onclick=async()=>{if(confirm('Delete this item?')){await call('cdel',{id:it.id});load()}};c.append(e,d);return c}
-function lnk(u,t){if(!ok(u))return null;const a=el('a','',t);a.href=u;a.target='_blank';a.rel='noopener';a.style.cssText='font:12px JetBrains Mono,monospace;color:var(--g)';return a}
-function drawC(){const L=(t,box,min,rd,def)=>{const g=$(box);g.replaceChildren();let a=CT[t];if(!a.length&&def)a=def;a.forEach(it=>{const n=rd(it),c=ctl(t,it,min);if(c)n.append(c);g.append(n)});if(!a.length&&Rk()>=min)g.append(el('p','sm','Nothing here yet. Use the Staff console to add items.'));const s=g.closest('section');s.hidden=!a.length&&Rk()<min};
-L('event','#evl',2,it=>{const a=el('article','event'),m=el('div','meta');m.append(el('span','','DATE: '+it.f2),el('span','','LOC: '+it.f3));a.append(el('h3','',it.f1),m,el('p','',it.f4));const l=lnk(it.f5,'Register / Details →');if(l)a.append(l);return a},DEFEV);
-L('news','#nl',2,it=>{const a=el('article','event'),m=el('div','meta');m.append(el('span','',it.f3));a.append(m,el('h3','',it.f1),el('p','',it.f2));return a});
-L('team','#tl',3,it=>{const a=el('article','card');a.append(el('h3','',it.f1),el('span','tag',it.f2),el('p','',it.f3));const l=lnk(it.f4,'Profile →');if(l)a.append(l);return a});
-L('faq','#fl',2,it=>{const a=el('details','event');a.append(el('summary','',it.f1),el('p','',it.f2));return a})}
-function cform(t,it){bd.replaceChildren();it=it||{};const ins=SCH[t].map((l,i)=>field(l,TA.includes(l)?'ta':'',it['f'+(i+1)])),m=el('p','sm'),b=el('button','btn pri mini','Save');
-b.onclick=async()=>{if(!ins[0].value.trim())return;const r=await call('csave',{id:it.id||('c'+Date.now().toString(36)),type:t,f:ins.map(i=>i.value.trim())});if(r.ok){dl.close();load()}else m.textContent=r.err||'Failed'};const w=el('div','row');w.append(b);bd.append(w,m);if(!dl.open)dl.showModal()}
-async function msgs(){bd.replaceChildren();const r=await call('messages');(r.messages||[]).forEach(x=>{const w=el('div','event');w.append(el('h3','',x.name+' · '+x.email),el('p','',x.message));const d=el('button','btn mini','Delete');d.onclick=async()=>{await call('delMsg',{id:x.id});msgs()};w.append(d);bd.append(w)});if(!(r.messages||[]).length)bd.append(el('p','sm','No messages yet.'))}
-$('#cf').onsubmit=async e=>{e.preventDefault();const f=e.target,b=$('#cm');if(!API.startsWith('http')){b.textContent='Form not connected yet.';return}try{const r=await call('contact',{n:f.elements.n.value,e:f.elements.e.value,m:f.elements.m.value,w:f.elements.w.value});b.textContent=r.ok?'Message sent ✓':(r.err||'Failed');if(r.ok)f.reset()}catch(x){b.textContent='Could not send.'}};
-let LG=[],LA=0,LP=false,LF='all';
-const CAT={all:()=>true,logins:r=>['login','logout'].includes(r.action),changes:r=>['save','del','csave','cdel','settings','setUser','delUser'].includes(r.action),denied:r=>r.result.startsWith('DENIED'),visits:r=>r.action=='visit'};
-function lgRow(r){const w=el('div','lg'),bad=r.result.startsWith('DENIED');if(r.role=='admin')w.style.borderLeft='2px solid var(--g)';const a=el('span','',r.action.toUpperCase()+' · '+r.result);a.style.color=bad?'#ff6b6b':'var(--a)';
-w.append(el('span','',new Date(+r.ts).toLocaleString()),el('span','',r.ip),a,el('span','',r.user+' ('+r.role+')'),el('span','sm',r.detail+(r.ua?' | '+r.ua:'')));return w}
-function logsView(){bd.replaceChildren();LG=[];LA=0;LP=false;LF='all';const bar=el('div','row'),sel=el('select'),pb=el('button','btn mini','Pause'),cb=el('button','btn mini','Download CSV'),ls=el('span','sm','● LIVE'),box=el('div');
-['all','logins','changes','denied','visits'].forEach(x=>{const o=el('option','',x);o.value=x;sel.append(o)});sel.style.width='auto';bar.append(sel,pb,cb,ls);box.style.marginTop='12px';bd.append(bar,box);
-const rd=()=>{box.replaceChildren();LG.filter(CAT[LF]).slice(0,300).forEach(r=>box.append(lgRow(r)));if(!box.children.length)box.append(el('p','sm','No entries.'))};
-sel.onchange=()=>{LF=sel.value;rd()};pb.onclick=()=>{LP=!LP;pb.textContent=LP?'Resume':'Pause';ls.textContent=LP?'❚❚ PAUSED':'● LIVE'};
-cb.onclick=()=>{const q=v=>'"'+(/^[=+\-@]/.test(String(v))?"'":'')+String(v).replace(/"/g,'""')+'"',csv=['time,ip,action,user,role,result,detail,device'].concat(LG.map(r=>[new Date(+r.ts).toISOString(),r.ip,r.action,r.user,r.role,r.result,r.detail,r.ua].map(q).join(','))).join('\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='mubc-logs.csv';a.click()};
-const poll=async()=>{if(!document.body.contains(box)){clearInterval(tm);return}if(LP)return;try{const r=await call('logs',{after:LA});if(r.err){ls.textContent=r.err;return}if(r.last<LA)LG=[];LA=r.last;if(r.rows.length){r.rows.forEach(v=>LG.unshift({ts:v[0],ip:v[1],action:v[2],user:v[3],role:v[4],result:v[5],detail:v[6],ua:v[7]}));LG=LG.slice(0,500);rd()}else if(!box.children.length)rd()}catch(e){ls.textContent='offline'}};
-const tm=setInterval(poll,4000);poll()}
+if(R>=1)add('Add project',()=>form());if(R>=3){add('Site settings',site);add('Users',team)}add('Sign out',async()=>{await call('logout');tok=me=null;try{sessionStorage.removeItem('t')}catch(e){}draw();login()});bd.replaceChildren(el('p','sm','Choose an action above.'))}
+async function load(){if(!API.startsWith('http'))return;try{const r=await call('list');P=r.projects&&r.projects.length?r.projects:DEF;const s=r.settings||{};for(const k in s)document.querySelectorAll('[data-k='+k+']').forEach(e=>e.textContent=s[k]);if(tok&&!me){const w=await call('me');if(w.user)me=w.user;else tok=null}draw()}catch(e){}}
 $('#sb').onclick=e=>{e.preventDefault();if(!dl.open)dl.showModal();me?panel():login()};
-load();try{if(!sessionStorage.getItem('v')){sessionStorage.setItem('v','1');call('visit',{p:location.pathname+location.hash}).catch(()=>{})}}catch(e){}
+load();
 </script>
 </body>
 </html>
