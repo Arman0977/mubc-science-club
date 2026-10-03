@@ -276,7 +276,7 @@ r();addEventListener('resize',r);f()})();
 <script>
 window.dataReady=new Promise(r=>{window.__dr=r});
 const DEF=[["engineering","In Progress","Smart Environment Monitor","Sample: sensor network logging temperature, humidity and air quality."],["computing","Prototyping","Vision-Based Object Detection","Sample: a computer vision pipeline that detects and classifies objects."],["experiments","Planning","Automated Lab System","Sample: automating repeatable lab procedures and data capture."],["research","Ongoing","Energy Monitoring System","Sample: measuring and analysing power consumption to find savings."]].map((a,i)=>({id:"s"+i,category:a[0],status:a[1],name:a[2],desc:a[3],link:"",sample:true,ts:i}));
-const RANKS={member:0,contributor:1,editor:2,admin:3};
+const RANKS={member:0,Project_Leader:1,editor:2,admin:3};
 const API='https://script.google.com/macros/s/AKfycby_3TB-PpX3CBf9iu8_tLtH3ORjwyH1Ks1uM9KRZioChyDakoKoxVD2n4HcQD2lRsnf/exec',HOST=location.hostname;
 let tok=null;try{tok=sessionStorage.getItem('t')}catch(e){}
 let LOADING=false,CACHE=null;try{CACHE=JSON.parse(localStorage.getItem(tok?'mubc_c':'mubc_g'))}catch(e){}LOADING=API.startsWith('http')&&!CACHE;
@@ -315,7 +315,7 @@ $('#cl').onclick=()=>dl.close();$('#acl').onclick=()=>ad.close();
 /* ---------- Staff Panel (stays open until you close it) ---------- */
 function flash(m,t){let s=TGT.querySelector('.stt');if(!s){s=el('p','sm stt');TGT.append(s)}s.textContent=t;s.style.color=m?'var(--a)':'#ff6b6b'}
 function form(p){const B=use(bd);p=p||{};const n=field('Project name','',p.name),d=field('Description','ta',p.desc),c=field('Category','',p.category||'research',['research','engineering','computing','experiments']),s=field('Status','',p.status||'Planning',['Planning','Prototyping','In Progress','Ongoing','Completed']),l=field('Link (https://…)','url',p.link);
-if(Rk()<2)B.append(el('p','sm','Contributors: your project is shown as UNDER REVIEW until an editor or admin approves it. Editing a project sends it back for review.'));
+if(Rk()<2)B.append(el('p','sm','Project_Leaders: your project is shown as UNDER REVIEW until an editor or admin approves it. Editing a project sends it back for review.'));
 const b=el('button','btn pri mini','Save project');b.onclick=async()=>{if(!n.value.trim())return;const id=p.id||('p'+Date.now().toString(36));const r=await call('save',{id,p:{name:n.value.trim().slice(0,80),desc:d.value.trim().slice(0,300),category:c.value,status:s.value,link:ok(l.value)?l.value:''}});
 if(!r.ok){flash(0,r.err||'Save refused');return}await load();if(Rk()<2){mineView();flash(1,'Saved ✓ — your project is UNDER REVIEW')}else{p.id=id;flash(1,'Saved ✓')}};
 const r=el('div','row');r.append(b);B.append(r)}
@@ -342,7 +342,7 @@ function siteView(){const B=use(abd);const ks=['members','projects','events','wo
 ks.forEach(k=>ins[k]=k=='hackathon'?field('Hackathon section','',hk()?'show':'hide',['hide','show']):field(k.startsWith('t_')?k.replace('t_','text: '):k,k.startsWith('t_')?'ta':'',SET[k]||(SOC.includes(k)?'':(document.querySelector('[data-k='+k+']')||{}).textContent)));
 const b=el('button','btn pri mini','Save site settings');b.onclick=async()=>{const o={};ks.forEach(k=>o[k]=ins[k].value.trim().slice(0,500));const r=await call('settings',{s:o});await load();flash(r.ok,r.ok?'Saved ✓':(r.err||'Failed'))};B.append(b)}
 function editKey(k,l,t){openAd();adminTabs();const B=use(abd);B.append(el('h3','','Edit: '+l));const i=field(l,t=='ta'?'ta':'',SET[k]||(document.querySelector('[data-k='+k+']')||{}).textContent),b=el('button','btn pri mini','Save');b.onclick=async()=>{const r=await call('settings',{s:{[k]:i.value.trim()}});await load();flash(r.ok,r.ok?'Saved ✓':(r.err||'Failed'))};B.append(b)}
-async function usersView(){const B=use(abd),r=await call('users'),u=field('Username (3-20 chars)',''),pw=field('Password (8+, leave blank to keep)',''),rl=field('Rank','','editor',['contributor','editor','admin']);pw.type='password';
+async function usersView(){const B=use(abd),r=await call('users'),u=field('Username (3-20 chars)',''),pw=field('Password (8+, leave blank to keep)',''),rl=field('Rank','','editor',['Project_Leader','editor','admin']);pw.type='password';
 const m=el('p','sm'),b=el('button','btn pri mini','Create / update user');b.onclick=async()=>{const x=await call('setUser',{u:u.value.trim(),pw:pw.value,role:rl.value});if(x.ok)usersView();else m.textContent=x.err||'Failed'};B.append(b,m);
 (r.users||[]).forEach(x=>{const w=el('div','row');w.append(el('span','sm',x.username+' — '+x.role));const d=el('button','btn mini','Remove');d.onclick=async()=>{if(confirm('Remove '+x.username+'?')){await call('delUser',{u:x.username});usersView()}};w.append(d);B.append(w)})}
 async function msgs(){const B=use(abd),r=await call('messages');(r.messages||[]).forEach(x=>{const w=el('div','event');w.append(el('h3','',x.name+' · '+x.email),el('p','',x.message));const d=el('button','btn mini','Delete');d.onclick=async()=>{await call('delMsg',{id:x.id});msgs()};w.append(d);B.append(w)});if(!(r.messages||[]).length)B.append(el('p','sm','No messages yet.'))}
