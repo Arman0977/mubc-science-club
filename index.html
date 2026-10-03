@@ -7,7 +7,7 @@
 <meta name="description" content="MUBC Science Club is a student-led science, technology and engineering community turning curiosity into experiments, prototypes and real-world solutions.">
 <link rel="canonical" href="https://arman0977.github.io/mubc-science-club/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-<meta name="author" content="MUBC Science Club"><meta name="theme-color" content="#05070D"><meta name="color-scheme" content="dark">
+<meta name="author" content="MUBC Science Club"><meta name="theme-color" content="#05070D"><meta name="color-scheme" content="dark light" id="csmeta">
 <!-- Google Search Console: paste your verification tag here, e.g. <meta name="google-site-verification" content="XXXX"> -->
 <meta property="og:type" content="website"><meta property="og:site_name" content="MUBC Science Club"><meta property="og:locale" content="en">
 <meta property="og:title" content="MUBC Science Club | Explore • Experiment • Engineer"><meta property="og:description" content="MUBC Science Club is a student-led science, technology and engineering community turning curiosity into experiments, prototypes and real-world solutions.">
@@ -19,7 +19,32 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#05070D;--bg2:#080D18;--p:#0A4DFF;--p2:#087CFF;--a:#00D9FF;--g:#D9A441;--t:#F5F7FA;--m:#8B96A8;--line:rgba(0,217,255,.18);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{
+--bg:#05070D;--bg2:#080D18;--bg3:#0a1020;
+--p:#0A4DFF;--p2:#087CFF;--a:#00D9FF;--g:#D9A441;
+--t:#F5F7FA;--m:#8B96A8;--line:rgba(0,217,255,.18);
+--glow:rgba(0,217,255,.25);--card:rgba(10,77,255,.08);
+--sep-c1:#00D9FF;--sep-c2:#D9A441;
+--grid-c:rgba(0,217,255,.22);
+--hero-grad:radial-gradient(ellipse at 75% 40%,#0a1f55 0,var(--bg) 60%);
+--section-alt:var(--bg2);--hack-grad:linear-gradient(135deg,#061a54,var(--bg) 70%);
+--btn-bg:transparent;--btn-c:var(--t);
+--fact-bg:rgba(10,77,255,.06);--fact-border:var(--line);
+--shadow:rgba(0,0,0,.6);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[data-theme="light"]{
+--bg:#f0f2f8;--bg2:#e4e8f4;--bg3:#dde3f2;
+--p:#1a3fa8;--p2:#1e5ccc;--a:#c0392b;--g:#1a3fa8;
+--t:#0d1b3e;--m:#3d4f7c;--line:rgba(26,63,168,.25);
+--glow:rgba(26,63,168,.2);--card:rgba(26,63,168,.07);
+--sep-c1:#1a3fa8;--sep-c2:#c0392b;
+--grid-c:rgba(26,63,168,.15);
+--hero-grad:linear-gradient(135deg,#e8edf8 0%,#f5f0f0 60%,#f0eaea 100%);
+--section-alt:#e4e8f4;--hack-grad:linear-gradient(135deg,#c8d4f0,#f0f2f8 70%);
+--btn-bg:transparent;--btn-c:var(--t);
+--fact-bg:rgba(26,63,168,.06);--fact-border:rgba(26,63,168,.3);
+--shadow:rgba(0,20,80,.15);
+color-scheme:light}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
 body{margin:0;background:var(--bg);color:var(--t);font:400 16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
@@ -167,6 +192,194 @@ details.event summary{cursor:pointer;font:700 17px 'Space Grotesk';color:var(--t
 .ei{display:inline-grid;place-items:center;width:26px;height:26px;margin-left:8px;vertical-align:middle;background:rgba(0,217,255,.1);border:1px solid var(--a);color:var(--a);cursor:pointer;padding:0}
 .ei svg,.ctl svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}.ctl button{display:grid;place-items:center;min-width:28px;height:28px}
 .bdg{font:10px 'JetBrains Mono',monospace;letter-spacing:.14em;padding:3px 8px;border:1px solid}.bdg.pending{color:var(--g);border-color:var(--g)}.bdg.approved{color:var(--a);border-color:var(--a)}.bdg.rejected{color:#ff6b6b;border-color:#ff6b6b}
+
+/* ═══════════ GLOBAL / TRANSITIONS ═══════════ */
+html{transition:background .35s,color .35s}
+*{transition:background-color .25s,border-color .25s,color .18s,box-shadow .25s}
+body{background:var(--bg);color:var(--t)}
+
+/* ═══════════ THEME TOGGLE BUTTON ═══════════ */
+#tgt{position:fixed;bottom:calc(70px + env(safe-area-inset-bottom,0px));right:18px;z-index:46;
+ width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+ background:var(--bg2);color:var(--a);font-size:18px;cursor:pointer;
+ display:grid;place-items:center;box-shadow:0 0 18px var(--glow);
+ transition:box-shadow .3s,transform .3s}
+#tgt:hover{transform:scale(1.12);box-shadow:0 0 28px var(--glow)}
+#tgt[data-mode="light"]{box-shadow:0 0 18px rgba(192,57,43,.3)}
+
+/* ═══════════ BACKGROUNDS / SECTIONS ═══════════ */
+#home{background:var(--hero-grad)}
+#approach,#projects,#events{background:var(--section-alt)}
+#hackathon{background:var(--hack-grad)}
+
+/* ═══════════ GRID BACKGROUND ═══════════ */
+.grid-bg{background-image:linear-gradient(var(--grid-c) 1px,transparent 1px),
+ linear-gradient(90deg,var(--grid-c) 1px,transparent 1px)}
+
+/* ═══════════ NAVBAR ═══════════ */
+header.s{background:rgba(var(--bg-rgb,5,7,13),.92)}
+[data-theme="light"] header.s{background:rgba(240,242,248,.92)}
+nav ul a:hover{color:var(--a)}
+.brand{color:var(--t)}
+
+/* ═══════════ BUTTONS ═══════════ */
+.btn{background:var(--btn-bg);color:var(--btn-c)}
+.btn:hover{border-color:var(--g);box-shadow:0 0 30px var(--glow)}
+.btn.pri{background:linear-gradient(90deg,var(--p),var(--p2));border-color:var(--p2);
+ box-shadow:0 0 28px rgba(10,77,255,.35);color:#fff}
+[data-theme="light"] .btn.pri{background:linear-gradient(90deg,#1a3fa8,#1e5ccc);
+ box-shadow:0 0 22px rgba(26,63,168,.35)}
+
+/* ═══════════ CARDS ═══════════ */
+.card{background:var(--card);border-color:var(--line)}
+.card:hover{border-color:var(--a);box-shadow:0 12px 40px var(--glow)}
+.card svg{stroke:var(--a)}
+
+/* ═══════════ PROJECTS ═══════════ */
+.proj{background:var(--bg2);border-color:var(--line)}
+.proj:hover{border-color:var(--a);box-shadow:0 8px 32px var(--glow)}
+.proj h3{color:var(--t)}
+
+/* ═══════════ EVENTS ═══════════ */
+.event{background:var(--bg2);border-color:var(--line)}
+.event h3{color:var(--t)}
+.event .meta{color:var(--a)}
+details.event summary{color:var(--t)}
+details.event[open]{background:var(--card)}
+
+/* ═══════════ STATS ═══════════ */
+.stat{background:var(--bg)}
+.stat strong::after{background:var(--g)}
+[data-theme="light"] .stat strong{color:var(--p)}
+
+/* ═══════════ STEP BUTTONS (approach) ═══════════ */
+.step b{background:var(--bg);border-color:var(--line);color:var(--t)}
+.step.on b{border-color:var(--a);color:var(--a)}
+.panel{background:rgba(255,255,255,.03);border-color:var(--line)}
+[data-theme="light"] .panel{background:rgba(26,63,168,.06)}
+.panel h3{color:var(--g)}
+
+/* ═══════════ FILTERS ═══════════ */
+.filters button{border-color:var(--line);color:var(--m)}
+.filters button.on,.filters button:hover{color:#fff;background:var(--a);border-color:var(--a)}
+[data-theme="light"] .filters button.on,[data-theme="light"] .filters button:hover{color:#fff;background:var(--p)}
+
+/* ═══════════ FACT BOX ═══════════ */
+.fact{background:var(--fact-bg);border-color:var(--fact-border)}
+.fact p{color:var(--t)}
+#ft-wrap{display:flex;align-items:flex-start;gap:14px}
+#ft-icon{font-size:28px;flex-shrink:0;line-height:1;opacity:.85}
+#ft-text{flex:1}
+#ft-sub{font:11px 'JetBrains Mono',monospace;letter-spacing:.14em;color:var(--m);margin-top:6px}
+#ft-nav{display:flex;gap:8px;margin-top:10px}
+#ft-nav button{background:none;border:1px solid var(--line);color:var(--m);padding:4px 10px;font:11px 'JetBrains Mono',monospace;cursor:pointer}
+#ft-nav button:hover{border-color:var(--a);color:var(--a)}
+
+/* ═══════════ CHIPS ═══════════ */
+.chips span{border-color:var(--line);color:var(--a);background:var(--card)}
+[data-theme="light"] .chips span{color:var(--p);background:rgba(26,63,168,.08)}
+
+/* ═══════════ QUOTE ═══════════ */
+.quote{border-left-color:var(--g);color:var(--t)}
+
+/* ═══════════ HACKATHON ═══════════ */
+#hackathon{border-block-color:var(--a)}
+[data-theme="light"] #hackathon{border-block-color:var(--p)}
+#hackathon h2 span{color:var(--a)}
+[data-theme="light"] #hackathon h2 span{color:var(--p2)}
+.tagl{color:var(--g)}
+[data-theme="light"] .tagl{color:var(--p)}
+#hackathon p{color:var(--m)}
+
+/* ═══════════ CONTACT ═══════════ */
+.cl a,.cl div{border-color:var(--line);background:var(--bg2)}
+.cl a:hover{border-color:var(--a)}
+.cl small{color:var(--g)}
+[data-theme="light"] .cl small{color:var(--p)}
+.cl span{color:var(--m)}
+#cf input,#cf textarea{background:var(--bg2);border-color:var(--line);color:var(--t)}
+[data-theme="light"] #cf input,[data-theme="light"] #cf textarea{background:#fff;border-color:rgba(26,63,168,.3)}
+.hp{position:absolute;left:-9999px}
+
+/* ═══════════ FOOTER ═══════════ */
+footer{background:var(--bg2);border-top-color:var(--line)}
+
+/* ═══════════ DIALOG / CONSOLE ═══════════ */
+dialog{background:var(--bg2);border-color:var(--a)}
+dialog input,dialog select,dialog textarea{background:var(--bg);border-color:var(--line);color:var(--t)}
+[data-theme="light"] dialog{background:var(--bg2)}
+[data-theme="light"] dialog input,[data-theme="light"] dialog select,[data-theme="light"] dialog textarea{background:#fff;border-color:rgba(26,63,168,.3)}
+.ctl button{border-color:var(--line);color:var(--a)}
+
+/* ═══════════ RANK STICKER ═══════════ */
+#rb{background:var(--bg2);border-color:var(--g);color:var(--g)}
+[data-theme="light"] #rb{background:var(--bg2);border-color:var(--p);color:var(--p)}
+
+/* ═══════════ STAFF / BADGES ═══════════ */
+.rk{border-color:var(--g);color:var(--g)}
+[data-theme="light"] .rk{border-color:var(--p);color:var(--p)}
+.bdg.approved{color:var(--a);border-color:var(--a)}
+[data-theme="light"] .bdg.approved{color:#1a7a2e;border-color:#1a7a2e}
+
+/* ═══════════ BACK TO TOP ═══════════ */
+#tt{border-color:var(--line);background:var(--bg2);color:var(--a)}
+#tt:hover{border-color:var(--a)}
+
+/* ═══════════ LIGHT MODE HERO EXTRA ═══════════ */
+[data-theme="light"] #home::before{content:"";position:absolute;inset:0;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 0l60 60M60 0L0 60' stroke='%231a3fa8' stroke-opacity='.06' stroke-width='1'/%3E%3C/svg%3E");pointer-events:none}
+[data-theme="light"] h1 em{color:var(--a)}
+[data-theme="light"] .tag i{color:var(--a)}
+
+/* ═══════════ CIRCUIT TRACES (light) ═══════════ */
+[data-theme="light"] .sep{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='46'%3E%3Cpath d='M0 23h230l14-14h112l14 14h230' fill='none' stroke='%231a3fa8' stroke-opacity='.4'/%3E%3Ccircle cx='244' cy='9' r='3' fill='%23c0392b'/%3E%3Ccircle cx='356' cy='9' r='3' fill='%231a3fa8'/%3E%3C/svg%3E")}
+
+/* ═══════════ SCROLL PROGRESS (light) ═══════════ */
+[data-theme="light"] #spg{background:linear-gradient(90deg,var(--p),var(--a))}
+
+/* ═══════════ PRIVACY POLICY LINK ═══════════ */
+.pp{font:11px 'JetBrains Mono',monospace;letter-spacing:.1em;color:var(--m);text-decoration:underline;display:inline-block;margin-top:6px}
+.pp:hover{color:var(--a)}
+[data-theme="light"] .pp:hover{color:var(--p)}
+
+/* ═══════════ SPLASH (light) ═══════════ */
+[data-theme="light"] #sp{background:#f0f2f8}
+[data-theme="light"] .spw::before{border-color:rgba(26,63,168,.45)}
+[data-theme="light"] .spw::after{background:var(--p)}
+[data-theme="light"] #sp p{color:var(--m)}
+[data-theme="light"] .bar{background:rgba(26,63,168,.15)}
+[data-theme="light"] .bar b{background:linear-gradient(90deg,var(--p),var(--a))}
+
+/* ═══════════ SKELETON (light) ═══════════ */
+[data-theme="light"] .ld>.proj,[data-theme="light"] .ld>.event{background:linear-gradient(90deg,#e4e8f4,#d8deee,#e4e8f4);border-color:var(--line)}
+
+/* ═══════════ NOSCRIPT ═══════════ */
+noscript p{padding:90px 24px;max-width:700px;margin:auto;color:var(--m)}
+
+/* ═══════════ QUICK-NAV PALETTE ═══════════ */
+#pal{background:var(--bg2);border-color:var(--a)}
+#pq{background:var(--bg);border:1px solid var(--line);color:var(--t);padding:10px;width:100%;margin-bottom:8px}
+[data-theme="light"] #pq{background:#fff;border-color:rgba(26,63,168,.3)}
+#pl a{color:var(--t)}
+#pl a:hover,#pl a.f{background:rgba(26,63,168,.1);border-color:var(--a)}
+
+/* ═══════════ MOBILE NAV (light) ═══════════ */
+[data-theme="light"] nav ul.o{background:rgba(240,242,248,.97);border-bottom-color:var(--line)}
+
+/* ═══════════ ABOUT SECTION - light floating hexagons BG ═══════════ */
+[data-theme="light"] #about{position:relative}
+[data-theme="light"] #about::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.06;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='140'%3E%3Cpolygon points='60,10 110,37.5 110,102.5 60,130 10,102.5 10,37.5' fill='none' stroke='%231a3fa8' stroke-width='1'/%3E%3C/svg%3E") 0 0/120px 140px}
+
+/* ═══════════ COMMUNITY SECTION (light) ═══════════ */
+[data-theme="light"] .stats{background:var(--line)}
+[data-theme="light"] .stat strong{color:var(--p)}
+[data-theme="light"] #join{background:linear-gradient(135deg,#dde3f2,#f0f2f8 70%)}
+
+/* ═══════════ SELECTION COLOUR ═══════════ */
+::selection{background:var(--a);color:var(--bg)}
+[data-theme="light"] ::selection{background:var(--p);color:#fff}
+
 </style>
 </head>
 <body>
@@ -196,7 +409,7 @@ details.event summary{cursor:pointer;font:700 17px 'Space Grotesk';color:var(--t
 <div class="rv"><span class="tag">// 01 About the club</span><h2>Where curiosity becomes creation</h2>
 <div class="quote">We don't just learn scientific concepts. We create, test, improve and solve.</div></div>
 <div class="rv"><p class="lead" data-k="t_about" data-edit="t_about|About text|ta">MUBC Science Club brings students together to explore science through hands-on work. Members use what they learn to build real things, measure how they perform, and make them better.</p>
-<div class="chips"><span>Experimentation</span><span>Research</span><span>Engineering</span><span>Programming</span><span>Problem solving</span><span>Innovation</span><span>Collaborative projects</span></div><div class="fact"><span class="tag">// Lab log · fact of the day</span><p id="ft"></p></div></div></div></section>
+<div class="chips"><span>Experimentation</span><span>Research</span><span>Engineering</span><span>Programming</span><span>Problem solving</span><span>Innovation</span><span>Collaborative projects</span></div><div class="fact" id="fact-box"><div id="ft-wrap"><span id="ft-icon">🔬</span><div id="ft-text"><span class="tag">// Lab log · fact of the day</span><p id="ft" style="margin:6px 0 0"></p><p id="ft-sub"></p><div id="ft-nav"><button id="ft-prev" aria-label="Previous fact">← PREV</button><button id="ft-next" aria-label="Next fact">NEXT →</button></div></div></div></div></div></div></section>
 
 <section id="approach"><div class="wrap"><div class="rv"><span class="tag">// 02 Our approach</span><h2>How we work</h2></div>
 <div class="steps rv" role="tablist" aria-label="Approach steps"></div>
@@ -234,7 +447,7 @@ details.event summary{cursor:pointer;font:700 17px 'Space Grotesk';color:var(--t
 <div class="stats rv"><div class="stat" data-edit="members|Active members"><strong data-k="members">XX+</strong><span>ACTIVE MEMBERS</span></div><div class="stat" data-edit="projects|Projects count"><strong data-k="projects">XX+</strong><span>PROJECTS</span></div><div class="stat" data-edit="events|Events count"><strong data-k="events">XX+</strong><span>EVENTS</span></div><div class="stat" data-edit="workshops|Workshops count"><strong data-k="workshops">XX+</strong><span>WORKSHOPS</span></div></div></div></section>
 
 <section id="news"><div class="wrap"><div class="rv"><span class="tag">// News</span><h2>Latest news</h2></div><div class="ev" id="nl"></div></div></section>
-<section id="team" style="background:var(--bg2)"><div class="wrap"><div class="rv"><span class="tag">// Team</span><h2>The people behind MUBC SCIENCE CLUB</h2></div><div class="cards" id="tl"></div></div></section>
+<section id="team" style="background:var(--bg2)"><div class="wrap"><div class="rv"><span class="tag">// Team</span><h2>The people behind MUBC</h2></div><div class="cards" id="tl"></div></div></section>
 <section id="faq"><div class="wrap"><div class="rv"><span class="tag">// FAQ</span><h2>Questions</h2></div><div class="ev" id="fl" style="grid-template-columns:1fr"></div></div></section>
 
 <section id="join"><div class="wrap rv"><span class="tag">// 08 Join us</span><h2>Ready to build something?</h2>
@@ -245,11 +458,11 @@ details.event summary{cursor:pointer;font:700 17px 'Space Grotesk';color:var(--t
 <section id="contact" style="background:var(--bg2)"><div class="wrap"><div class="rv"><span class="tag">// 09 Contact</span><h2>Get in touch</h2></div>
 <div class="cl rv"><div data-edit="email|Email"><small>Email</small><span data-k="email">official-email@placeholder</span></div><div data-edit="location|Location"><small>Location</small><span data-k="location">College / location placeholder</span></div>
 <a href="#contact" data-l="facebook" data-edit="facebook|Facebook link"><small>Facebook</small><span>Link placeholder</span></a><a href="#contact" data-l="instagram" data-edit="instagram|Instagram link"><small>Instagram</small><span>Link placeholder</span></a><a href="#contact" data-l="github" data-edit="github|Github link"><small>GitHub</small><span>Link placeholder</span></a><a href="#contact" data-l="linkedin" data-edit="linkedin|Linkedin link"><small>LinkedIn</small><span>Link placeholder</span></a></div>
-<form id="cf" class="rv"><input class="hp" name="w" tabindex="-1" autocomplete="off" aria-hidden="true"><input name="n" placeholder="Your full name" aria-label="Your full name" required maxlength="80"><input name="e" type="email" placeholder="Your email address" aria-label="Your email" required maxlength="120"><textarea name="m" rows="4" placeholder="Your message (at least 50 characters)" aria-label="Your message" minlength="50" required maxlength="1000"></textarea><div><button class="btn pri" type="submit">Send message</button> <span class="sm" id="cc">0/50</span> <span class="sm" id="cm" role="status"></span></div></form></div></section>
+<form id="cf" class="rv"><input class="hp" name="w" tabindex="-1" autocomplete="off" aria-hidden="true"><input name="n" placeholder="Your real full name (first and last)" aria-label="Your full name" required maxlength="80"><input name="e" type="email" placeholder="Your real email address" aria-label="Your email" required maxlength="120"><textarea name="m" rows="4" placeholder="Your message (at least 50 characters)" aria-label="Your message" minlength="50" required maxlength="1000"></textarea><div><button class="btn pri" type="submit">Send message</button> <span class="sm" id="cc">0/50</span> <span class="sm" id="cm" role="status"></span></div></form></div></section>
 </main>
 
-<footer><div class="wrap"><b>MUBC SCIENCE CLUB</b><p class="tag" style="margin-top:12px">EXPLORE • EXPERIMENT • ENGINEER</p><p>© 2026 MUBC Science Club. All rights reserved.</p><p style="font-size:12px">For security, we log basic access data (IP address, device, actions).</p></div><p class="sm" style="margin-top:10px">Tip: press Ctrl + K to jump anywhere</p></footer><dialog id="ad" aria-labelledby="adt"><h3 id="adt">Admin Panel</h3><div class="sm">Stays open until you close it.</div><div class="tabs" id="atabs"></div><div id="abd"></div><div class="row"><button class="btn mini" id="acl">Close Admin Panel</button></div></dialog>
-<dialog id="pal" aria-label="Quick navigation"><input id="pq" placeholder="Jump to…" aria-label="Search sections"><div id="pl"></div></dialog><a id="tt" href="#home" aria-label="Back to top">↑</a>
+<footer><div class="wrap"><b>MUBC SCIENCE CLUB</b><p class="tag" style="margin-top:12px">EXPLORE • EXPERIMENT • ENGINEER</p><p>© 2026 MUBC Science Club. All rights reserved.</p><p><a class="pp" href="https://docs.google.com/document/d/PASTE_YOUR_GOOGLE_DOC_ID_HERE/edit" target="_blank" rel="noopener" id="pplink">Privacy Policy &amp; Security</a></p><p style="font-size:12px">For security, we log basic access data (IP address, device, actions).</p></div><p class="sm" style="margin-top:10px">Tip: press Ctrl + K to jump anywhere</p></footer><dialog id="ad" aria-labelledby="adt"><h3 id="adt">Admin Panel</h3><div class="sm">Stays open until you close it.</div><div class="tabs" id="atabs"></div><div id="abd"></div><div class="row"><button class="btn mini" id="acl">Close Admin Panel</button></div></dialog>
+<dialog id="pal" aria-label="Quick navigation"><input id="pq" placeholder="Jump to…" aria-label="Search sections"><div id="pl"></div></dialog><a id="tt" href="#home" aria-label="Back to top">↑</a><button id="tgt" aria-label="Toggle theme" data-mode="dark">🌙</button>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -276,8 +489,8 @@ r();addEventListener('resize',r);f()})();
 <script>
 window.dataReady=new Promise(r=>{window.__dr=r});
 const DEF=[["engineering","In Progress","Smart Environment Monitor","Sample: sensor network logging temperature, humidity and air quality."],["computing","Prototyping","Vision-Based Object Detection","Sample: a computer vision pipeline that detects and classifies objects."],["experiments","Planning","Automated Lab System","Sample: automating repeatable lab procedures and data capture."],["research","Ongoing","Energy Monitoring System","Sample: measuring and analysing power consumption to find savings."]].map((a,i)=>({id:"s"+i,category:a[0],status:a[1],name:a[2],desc:a[3],link:"",sample:true,ts:i}));
-const RANKS={member:0,Project_Leader:1,editor:2,admin:3};
-const API='https://script.google.com/macros/s/AKfycby_3TB-PpX3CBf9iu8_tLtH3ORjwyH1Ks1uM9KRZioChyDakoKoxVD2n4HcQD2lRsnf/exec',HOST=location.hostname;
+const RANKS={member:0,contributor:1,editor:2,admin:3};
+const API='PASTE_APPS_SCRIPT_WEB_APP_URL_HERE',HOST=location.hostname;
 let tok=null;try{tok=sessionStorage.getItem('t')}catch(e){}
 let LOADING=false,CACHE=null;try{CACHE=JSON.parse(localStorage.getItem(tok?'mubc_c':'mubc_g'))}catch(e){}LOADING=API.startsWith('http')&&!CACHE;
 const SCH={event:['Title','Date','Location','Description','Link (https://…)'],team:['Name','Role','Bio','Link (https://…)'],news:['Title','Text','Date'],faq:['Question','Answer']},TA=['Description','Text','Answer','Bio'];
@@ -315,7 +528,7 @@ $('#cl').onclick=()=>dl.close();$('#acl').onclick=()=>ad.close();
 /* ---------- Staff Panel (stays open until you close it) ---------- */
 function flash(m,t){let s=TGT.querySelector('.stt');if(!s){s=el('p','sm stt');TGT.append(s)}s.textContent=t;s.style.color=m?'var(--a)':'#ff6b6b'}
 function form(p){const B=use(bd);p=p||{};const n=field('Project name','',p.name),d=field('Description','ta',p.desc),c=field('Category','',p.category||'research',['research','engineering','computing','experiments']),s=field('Status','',p.status||'Planning',['Planning','Prototyping','In Progress','Ongoing','Completed']),l=field('Link (https://…)','url',p.link);
-if(Rk()<2)B.append(el('p','sm','Project_Leaders: your project is shown as UNDER REVIEW until an editor or admin approves it. Editing a project sends it back for review.'));
+if(Rk()<2)B.append(el('p','sm','Contributors: your project is shown as UNDER REVIEW until an editor or admin approves it. Editing a project sends it back for review.'));
 const b=el('button','btn pri mini','Save project');b.onclick=async()=>{if(!n.value.trim())return;const id=p.id||('p'+Date.now().toString(36));const r=await call('save',{id,p:{name:n.value.trim().slice(0,80),desc:d.value.trim().slice(0,300),category:c.value,status:s.value,link:ok(l.value)?l.value:''}});
 if(!r.ok){flash(0,r.err||'Save refused');return}await load();if(Rk()<2){mineView();flash(1,'Saved ✓ — your project is UNDER REVIEW')}else{p.id=id;flash(1,'Saved ✓')}};
 const r=el('div','row');r.append(b);B.append(r)}
@@ -342,7 +555,7 @@ function siteView(){const B=use(abd);const ks=['members','projects','events','wo
 ks.forEach(k=>ins[k]=k=='hackathon'?field('Hackathon section','',hk()?'show':'hide',['hide','show']):field(k.startsWith('t_')?k.replace('t_','text: '):k,k.startsWith('t_')?'ta':'',SET[k]||(SOC.includes(k)?'':(document.querySelector('[data-k='+k+']')||{}).textContent)));
 const b=el('button','btn pri mini','Save site settings');b.onclick=async()=>{const o={};ks.forEach(k=>o[k]=ins[k].value.trim().slice(0,500));const r=await call('settings',{s:o});await load();flash(r.ok,r.ok?'Saved ✓':(r.err||'Failed'))};B.append(b)}
 function editKey(k,l,t){openAd();adminTabs();const B=use(abd);B.append(el('h3','','Edit: '+l));const i=field(l,t=='ta'?'ta':'',SET[k]||(document.querySelector('[data-k='+k+']')||{}).textContent),b=el('button','btn pri mini','Save');b.onclick=async()=>{const r=await call('settings',{s:{[k]:i.value.trim()}});await load();flash(r.ok,r.ok?'Saved ✓':(r.err||'Failed'))};B.append(b)}
-async function usersView(){const B=use(abd),r=await call('users'),u=field('Username (3-20 chars)',''),pw=field('Password (8+, leave blank to keep)',''),rl=field('Rank','','editor',['Project_Leader','editor','admin']);pw.type='password';
+async function usersView(){const B=use(abd),r=await call('users'),u=field('Username (3-20 chars)',''),pw=field('Password (8+, leave blank to keep)',''),rl=field('Rank','','editor',['contributor','editor','admin']);pw.type='password';
 const m=el('p','sm'),b=el('button','btn pri mini','Create / update user');b.onclick=async()=>{const x=await call('setUser',{u:u.value.trim(),pw:pw.value,role:rl.value});if(x.ok)usersView();else m.textContent=x.err||'Failed'};B.append(b,m);
 (r.users||[]).forEach(x=>{const w=el('div','row');w.append(el('span','sm',x.username+' — '+x.role));const d=el('button','btn mini','Remove');d.onclick=async()=>{if(confirm('Remove '+x.username+'?')){await call('delUser',{u:x.username});usersView()}};w.append(d);B.append(w)})}
 async function msgs(){const B=use(abd),r=await call('messages');(r.messages||[]).forEach(x=>{const w=el('div','event');w.append(el('h3','',x.name+' · '+x.email),el('p','',x.message));const d=el('button','btn mini','Delete');d.onclick=async()=>{await call('delMsg',{id:x.id});msgs()};w.append(d);B.append(w)});if(!(r.messages||[]).length)B.append(el('p','sm','No messages yet.'))}
@@ -389,26 +602,126 @@ if(CACHE){if(tok&&CACHE.user)me=CACHE.user;applyAll(CACHE);draw()}setTimeout(()=
 load();try{if(!sessionStorage.getItem('v')){sessionStorage.setItem('v','1');call('visit',{p:location.pathname+location.hash}).catch(()=>{})}}catch(e){}
 </script>
 <script>
-(()=>{const $=s=>document.querySelector(s),sp=$('#sp');let skip=false;try{skip=!!sessionStorage.getItem('sp')||!!localStorage.getItem('mubc_c')}catch(e){}
-if(sp){const lg=$('.brand img');if(lg)$('#spl').src=lg.src;if(skip)sp.remove();else{const t0=Date.now(),done=()=>setTimeout(()=>{sp.classList.add('h');setTimeout(()=>sp.remove(),700);try{sessionStorage.setItem('sp','1')}catch(e){}},Math.max(0,900-(Date.now()-t0)));
-Promise.race([Promise.all([window.dataReady,new Promise(r=>document.readyState=='complete'?r():addEventListener('load',r,{once:true}))]),new Promise(r=>setTimeout(r,3500))]).then(done)}}
-const pg=$('#spg');addEventListener('scroll',()=>{const h=document.documentElement;pg.style.transform='scaleX('+(h.scrollTop/((h.scrollHeight-h.clientHeight)||1))+')'},{passive:true});
-const F=['Light from the Sun takes about 8 minutes and 20 seconds to reach Earth.','The DNA in a single human cell would stretch to about 2 metres if uncoiled.','Water is densest at about 4 °C, which is why ice floats.','The first computer "bug" was a real moth found in a Harvard Mark II relay in 1947.','Lightning heats the air around it to roughly 30,000 °C.','Octopuses have three hearts and copper-based blue blood.','Bananas are slightly radioactive thanks to potassium-40.','Sound travels about four times faster in water than in air.','A day on Venus is longer than a year on Venus.','The human brain runs on roughly 20 watts of power.','Leibniz described the binary number system in 1703.','Absolute zero is −273.15 °C, where thermal motion nearly stops.'];
-const ft=$('#ft');if(ft)ft.textContent=F[Math.floor(Date.now()/864e5)%F.length];
-if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&'IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(x=>{if(!x.isIntersecting)return;io.unobserve(x.target);const e=x.target,m=/^(\d+)(\D*)$/.exec(e.textContent.trim());if(!m)return;const n=+m[1],t0=performance.now(),u=t=>{const p=Math.min(1,(t-t0)/1200);e.textContent=Math.round(n*(1-Math.pow(1-p,3)))+m[2];if(p<1)requestAnimationFrame(u)};requestAnimationFrame(u)}),{threshold:.6});document.querySelectorAll('.stat strong').forEach(e=>io.observe(e))}
-const pal=$('#pal'),pq=$('#pq'),pl=$('#pl');const items=()=>[...document.querySelectorAll('#menu a')].filter(a=>!a.closest('li').hidden).map(a=>[a.textContent,a.getAttribute('href')]);
-const rp=()=>{const q=pq.value.toLowerCase();pl.replaceChildren();items().filter(i=>i[0].toLowerCase().includes(q)).forEach((i,k)=>{const a=document.createElement('a');a.textContent=i[0];a.href=i[1];if(!k)a.className='f';a.onclick=()=>pal.close();if(i[1]=='#'){a.onclick=e=>{e.preventDefault();pal.close();$('#sb').click()}}pl.append(a)})};
-pq.oninput=rp;pq.onkeydown=e=>{if(e.key=='Enter'){const a=pl.querySelector('a');if(a)a.click()}};
-addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()=='k'){e.preventDefault();pq.value='';rp();pal.showModal();pq.focus()}});
-const cd=$('#cd'),tk=()=>{let b=null;try{(CT.event||[]).forEach(x=>{if(!/\d{4}/.test(x.f2))return;const t=Date.parse(x.f2);if(t>Date.now()&&(!b||t<b.t))b={t,n:x.f1}})}catch(e){}
-if(!b){cd.hidden=true;return}const s=Math.floor((b.t-Date.now())/6e4),d=Math.floor(s/1440),hh=Math.floor(s%1440/60);cd.hidden=false;cd.textContent='NEXT: '+b.n.toUpperCase()+' · '+d+'D '+String(hh).padStart(2,'0')+'H '+String(s%60).padStart(2,'0')+'M'};
-const ld=()=>{try{const b=location.origin+location.pathname,g=[],q=(CT.faq||[]).filter(x=>x.f1&&x.f2);
-if(q.length)g.push({'@type':'FAQPage',mainEntity:q.slice(0,30).map(x=>({'@type':'Question',name:x.f1,acceptedAnswer:{'@type':'Answer',text:x.f2}}))});
-(CT.event||[]).filter(x=>/^\d{4}-\d{2}-\d{2}/.test(x.f2)).slice(0,20).forEach(x=>g.push({'@type':'Event',name:x.f1,startDate:x.f2,eventAttendanceMode:'https://schema.org/OfflineEventAttendanceMode',eventStatus:'https://schema.org/EventScheduled',location:{'@type':'Place',name:x.f3,address:x.f3},description:x.f4,organizer:{'@type':'Organization',name:'MUBC Science Club',url:b}}));
-const sa=['facebook','instagram','github','linkedin'].map(k=>SET[k]).filter(u=>u&&/^https?:\/\//.test(u));if(sa.length)g.push({'@type':'Organization',name:'MUBC Science Club',url:b,sameAs:sa});
-let s=$('#ld-dyn');if(!g.length){if(s)s.remove();return}if(!s){s=document.createElement('script');s.type='application/ld+json';s.id='ld-dyn';document.head.append(s)}s.textContent=JSON.stringify({'@context':'https://schema.org','@graph':g})}catch(e){}};
-window.__ld=ld;ld();
-window.__tk=tk;tk();setInterval(tk,15000)})();
+(()=>{
+/* ═══ FACTS DATA (500 entries from uploaded file) ═══ */
+const FACTS=["Lightning can heat the surrounding air to roughly 30,000 °C.", "Light travels through a vacuum at about 300,000 km/s.", "Sound cannot travel through a vacuum.", "Sound generally travels faster through solids than through gases.", "Water reaches its maximum density at about 4 °C.", "Ice floats because solid water is less dense than liquid water.", "Pure water has a pH of approximately 7 at 25 °C.", "The SI unit of force is the newton.", "The SI unit of energy is the joule.", "The SI unit of power is the watt.", "Acceleration is the rate of change of velocity.", "Momentum depends on both mass and velocity.", "Friction converts some mechanical energy into thermal energy.", "Pressure is force distributed over an area.", "Atmospheric pressure decreases as altitude increases.", "Gravity is weaker on the Moon than on Earth.", "Mass remains constant when an object moves between planets.", "Weight depends on the local gravitational field.", "Objects in free fall accelerate toward Earth's center.", "Inertia is related to an object's mass.", "Kinetic energy depends on the square of velocity.", "Potential energy can be converted into kinetic energy.", "Energy can be transferred between different forms.", "Electric current is measured in amperes.", "Electric charge is measured in coulombs.", "Electrical resistance is measured in ohms.", "Voltage is measured in volts.", "Electrical power can be calculated from voltage and current.", "Copper has high electrical conductivity.", "Rubber is generally a good electrical insulator.", "Magnetic fields can exert forces on moving electric charges.", "Electromagnets require electric current to produce their magnetic field.", "Earth's magnetic field helps deflect charged particles from the solar wind.", "A changing magnetic field can induce an electric current.", "Generators convert mechanical energy into electrical energy.", "Electric motors convert electrical energy into mechanical energy.", "Transformers operate using electromagnetic induction.", "Alternating current periodically changes direction.", "Direct current flows in one direction.", "Capacitors can store electrical energy in an electric field.", "Inductors store energy in a magnetic field.", "Semiconductors have electrical properties between conductors and insulators.", "Silicon is widely used in semiconductor devices.", "Diodes primarily allow current to flow preferentially in one direction.", "Transistors can function as switches or amplifiers.", "LEDs produce light when electric current passes through them.", "Photons are the quantum particles associated with electromagnetic radiation.", "The energy of a photon increases with its frequency.", "Red light has a lower frequency than blue light.", "Ultraviolet radiation has higher frequency than visible violet light.", "Infrared radiation has lower frequency than visible red light.", "X-rays have shorter wavelengths than visible light.", "Gamma rays have extremely high photon energies.", "A prism can separate white light into different wavelengths.", "Refraction occurs when light changes direction while entering a different medium.", "Reflection occurs when light bounces from a surface.", "Diffraction becomes significant when waves encounter openings comparable to their wavelength.", "Interference occurs when waves overlap.", "Polarization describes a particular orientation of wave oscillation.", "The Doppler effect changes observed frequency when source and observer move relative to each other.", "Resonance occurs when a system is driven near one of its natural frequencies.", "Frequency is measured in hertz.", "One hertz corresponds to one cycle per second.", "Wavelength and frequency are inversely related for waves traveling at constant speed.", "Mechanical waves require a medium for propagation.", "Electromagnetic waves do not require a material medium.", "Standing waves can contain nodes and antinodes.", "Amplitude is related to the maximum displacement of an oscillating system.", "Wave energy generally increases with amplitude.", "Temperature measures the average kinetic energy associated with microscopic motion.", "Heat is energy transferred because of a temperature difference.", "Thermal expansion occurs because average particle separation can change with temperature.", "Metals generally expand when heated.", "Absolute zero is 0 kelvin.", "The Celsius and Kelvin scales have the same size degree interval.", "Entropy is associated with the number of microscopic configurations available to a system.", "The second law of thermodynamics places a direction on spontaneous macroscopic processes.", "A refrigerator transfers heat from a colder region to a warmer region using external work.", "Engines convert part of thermal energy into mechanical work.", "No heat engine operating between two finite temperatures can be 100% efficient.", "Atoms consist of nuclei surrounded by electrons.", "Atomic nuclei contain protons and neutrons.", "Protons have positive electric charge.", "Electrons have negative electric charge.", "Neutrons have approximately the same mass as protons but no net electric charge.", "The atomic number equals the number of protons in an atom.", "Isotopes have the same number of protons but different numbers of neutrons.", "Electrons occupy quantized energy states in atoms.", "Electrons can emit photons when transitioning to lower energy states.", "The nucleus occupies only a tiny fraction of an atom's volume.", "Most of an atom's mass is concentrated in its nucleus.", "Chemical bonding involves interactions between electrons and nuclei.", "Ionic bonding involves electrostatic attraction between oppositely charged ions.", "Covalent bonding involves sharing electron density between atoms.", "Metallic bonding allows electrons to be relatively delocalized within a metal.", "Chemical reactions rearrange atoms rather than normally creating or destroying them.", "A catalyst can accelerate a reaction without being consumed overall.", "Activation energy is the energy barrier associated with a chemical reaction.", "Increasing temperature generally increases the rate of many chemical reactions.", "Chemical equilibrium is dynamic rather than static.", "Le Chatelier's principle describes how an equilibrium system responds to imposed changes.", "The equilibrium constant describes the composition of a system at equilibrium.", "A reaction with a large equilibrium constant strongly favors products under the specified conditions.", "Reaction rate depends on factors such as temperature, concentration, and catalysts.", "Reaction mechanisms describe sequences of elementary reaction steps.", "An intermediate is formed in one reaction step and consumed in another.", "The rate-determining step can strongly influence the overall reaction rate.", "Molecularity refers to the number of reacting species in an elementary reaction step.", "Reaction order is determined from the rate law rather than simply from the balanced equation.", "A first-order reaction has a constant half-life under fixed conditions.", "Arrhenius behavior relates reaction-rate constants to temperature.", "Activation energy can be estimated from temperature-dependent rate constants.", "Diffusion results from random molecular motion.", "Osmosis is the net movement of solvent through a selectively permeable membrane.", "Concentration gradients can drive molecular transport.", "Electrons occupy molecular orbitals in quantum-mechanical descriptions of molecules.", "Bond order is related to the number of bonding and antibonding electrons.", "Molecular geometry depends strongly on electron distribution around atoms.", "Hydrogen bonding is weaker than typical covalent bonding but can strongly affect molecular properties.", "Water's hydrogen-bond network contributes to its unusually high boiling point.", "Carbon can form stable bonds with many different elements.", "Carbon-carbon bonding allows the formation of chains and rings.", "Isomerism occurs when compounds have the same molecular formula but different arrangements.", "Stereoisomers have the same connectivity but different three-dimensional arrangements.", "Enantiomers are non-superimposable mirror-image structures.", "Chirality is important in many biological molecules.", "Functional groups strongly influence the chemical behavior of organic molecules.", "Alcohols contain a hydroxyl functional group.", "Carboxylic acids contain a carboxyl functional group.", "Amines contain nitrogen-based functional groups.", "Polymers consist of repeating structural units.", "Polymer properties depend on molecular structure and chain organization.", "Proteins are polymers made from amino acids.", "DNA and RNA are nucleic acids.", "Lipids are a diverse group of largely hydrophobic biological molecules.", "Enzymes are biological catalysts.", "Enzyme activity depends on factors such as temperature and pH.", "Enzymes lower activation barriers without changing the overall thermodynamic equilibrium.", "ATP is a major energy-transfer molecule in cells.", "Cellular respiration transfers energy from nutrients into forms cells can use.", "Photosynthesis converts light energy into chemical energy.", "Chlorophyll absorbs specific regions of visible light.", "Carbon fixation incorporates inorganic carbon into organic molecules.", "Cellular membranes contain lipid bilayers.", "Phospholipids have both hydrophilic and hydrophobic regions.", "Membrane proteins perform functions including transport, signaling, and catalysis.", "Diffusion across membranes can occur without direct energy expenditure when a concentration gradient drives it.", "Active transport requires an energy source.", "Ion gradients can store electrochemical potential energy.", "The sodium-potassium pump uses ATP to transport ions against their gradients.", "DNA replication produces copies of genetic information.", "DNA polymerases synthesize DNA strands using existing strands as templates.", "RNA polymerases synthesize RNA.", "Transcription converts DNA information into RNA.", "Translation uses RNA information to assemble proteins.", "Ribosomes are molecular machines involved in protein synthesis.", "Mutations are changes in genetic sequence.", "Not all mutations alter protein function.", "Some mutations occur in regions that do not directly encode proteins.", "Natural selection acts on heritable variation affecting reproductive success.", "Genetic drift can change allele frequencies through random sampling.", "Gene flow can transfer genetic variation between populations.", "Genetic recombination creates new combinations of existing genetic variants.", "Meiosis reduces chromosome number in reproductive cells.", "Mitosis generally produces genetically similar daughter cells.", "Chromosomes contain DNA associated with proteins.", "Gene expression can be regulated at multiple stages.", "Epigenetic mechanisms can influence gene activity without changing the underlying DNA sequence.", "Messenger RNA carries coding information from DNA to ribosomes.", "Transfer RNA helps match amino acids to messenger RNA codons.", "Codons consist of three RNA nucleotides.", "Several different codons can specify the same amino acid.", "Protein folding determines much of a protein's biological function.", "Misfolded proteins can contribute to cellular dysfunction.", "Molecular chaperones assist some proteins in folding correctly.", "Cells maintain internal conditions through regulatory mechanisms.", "Homeostasis involves maintaining relatively stable internal conditions.", "Feedback systems can either stabilize or amplify changes.", "Negative feedback is common in biological regulation.", "Positive feedback can accelerate biological processes.", "Neurons communicate across synapses using chemical or electrical signals.", "Neurotransmitters can alter the activity of neighboring cells.", "Hormones can act as chemical signals between distant tissues.", "The endocrine system regulates numerous physiological processes.", "The immune system distinguishes many molecular patterns associated with pathogens or abnormal cells.", "Antibodies bind specific molecular targets.", "Vaccination can generate immune memory.", "Inflammation is part of the body's immune response.", "The kidneys help regulate water, ions, and waste products in the body.", "The liver performs numerous metabolic and detoxification functions.", "Hemoglobin binds oxygen reversibly.", "Oxygen transport depends partly on oxygen partial pressure.", "Blood pH is closely regulated because many biological reactions are pH-sensitive.", "Carbon dioxide transport contributes to regulation of blood acidity.", "The lungs exchange gases between air and blood.", "Alveoli provide a large surface area for gas exchange.", "The heart generates pressure that drives blood circulation.", "Arteries carry blood away from the heart.", "Veins carry blood toward the heart.", "Capillaries are major sites of exchange between blood and tissues.", "The Solar System formed from a rotating disk of gas and dust.", "Most of the Solar System's mass is concentrated in the Sun.", "Planetary orbits are approximately elliptical.", "Earth's orbital path is not a perfect circle.", "Earth's axial tilt contributes to seasonal changes.", "The Moon's gravity contributes significantly to Earth's ocean tides.", "Tidal locking causes the Moon to keep nearly the same face toward Earth.", "Solar eclipses occur when the Moon passes between Earth and the Sun.", "Lunar eclipses occur when Earth passes between the Sun and Moon.", "The Sun's energy is produced primarily through nuclear fusion.", "Hydrogen nuclei fuse into helium in the Sun's core.", "Nuclear fusion converts a small amount of mass into energy.", "A star's color provides information about its surface temperature.", "Hotter stars generally emit proportionally more blue and ultraviolet radiation.", "Red giants have expanded outer layers.", "White dwarfs are remnants of certain low- and intermediate-mass stars.", "Neutron stars are extraordinarily dense stellar remnants.", "Pulsars are rapidly rotating neutron stars that emit beams of radiation.", "Supernovae can produce and distribute many heavy elements.", "Black holes can form from the gravitational collapse of sufficiently massive stellar remnants.", "An event horizon marks a boundary beyond which signals cannot escape to distant observers.", "Gravitational waves are ripples in spacetime produced by accelerating massive objects.", "Gravitational-wave observations provide information about compact astrophysical objects.", "Galaxies are gravitationally bound systems containing stars, gas, dust, and dark matter.", "The Milky Way is a barred spiral galaxy.", "Galaxies can interact gravitationally with one another.", "Galaxy collisions do not necessarily mean individual stars collide.", "Dark matter interacts gravitationally but does not appear to emit ordinary electromagnetic radiation.", "Dark energy is a term used to describe the phenomenon associated with accelerated cosmic expansion.", "The observable universe is smaller than the entire universe may be.", "Cosmic microwave background radiation is relic radiation from the early universe.", "The cosmic microwave background has a nearly uniform temperature with small fluctuations.", "Cosmological redshift is associated with the expansion of the universe.", "The age of the universe is estimated from multiple independent observations.", "Earth's atmosphere scatters shorter visible wavelengths more strongly than longer ones.", "This scattering contributes to the blue appearance of the daytime sky.", "Atmospheric refraction can cause astronomical objects to appear slightly displaced.", "Greenhouse gases absorb and re-emit infrared radiation.", "Clouds influence Earth's energy balance by interacting with radiation.", "Oceans absorb and redistribute enormous amounts of thermal energy.", "Ocean currents transport heat around the planet.", "El Niño involves changes in tropical Pacific Ocean-atmosphere interactions.", "Earth's climate system includes the atmosphere, oceans, land, ice, and biosphere.", "Ice and snow can reflect a substantial fraction of incoming sunlight.", "Melting ice can reduce surface reflectivity.", "Carbon moves continuously between Earth's atmosphere, oceans, rocks, and living organisms.", "Photosynthesis is a major pathway for removing carbon dioxide from the atmosphere.", "Respiration returns carbon dioxide to the environment.", "Decomposition releases carbon and nutrients from dead organic matter.", "Sedimentary rocks can preserve evidence of ancient environments.", "Igneous rocks form from cooling molten material.", "Metamorphic rocks form when existing rocks are altered by heat, pressure, or chemically active fluids.", "Earth's crust is divided into tectonic plates.", "Plate boundaries can produce earthquakes and volcanoes.", "Subduction occurs when one tectonic plate moves beneath another.", "Mid-ocean ridges form where oceanic plates move apart.", "Earthquakes release stored elastic energy.", "Seismic waves travel through Earth's interior.", "P-waves can travel through solids and fluids.", "S-waves cannot propagate through fluids.", "Earth's outer core is liquid.", "Earth's inner core is solid despite its high temperature because of enormous pressure.", "Volcanoes can release gases, ash, and molten rock.", "Magma is molten rock beneath Earth's surface.", "Lava is molten rock that reaches Earth's surface.", "Mineral properties can be identified using characteristics such as hardness and crystal structure.", "Quartz has a characteristic crystalline structure.", "Fossils provide evidence about past life and environments.", "Radiometric dating uses radioactive decay to estimate the age of materials.", "Half-life is the time required for half of a radioactive sample to decay.", "Radioactive decay is governed by probabilistic processes at the individual-nucleus level.", "Alpha radiation consists of helium nuclei.", "Beta radiation commonly involves electrons or positrons.", "Gamma radiation consists of high-energy electromagnetic photons.", "Radioactive isotopes can be useful in medical diagnosis and treatment.", "Nuclear fission splits heavy nuclei into smaller nuclei.", "Nuclear fusion combines lighter nuclei into heavier nuclei.", "Nuclear reactors can use controlled fission to generate heat.", "The binding energy of a nucleus is related to its mass defect.", "Nuclear forces act over very short distances.", "Quantum mechanics predicts probabilities rather than definite classical trajectories for many microscopic systems.", "The uncertainty principle places fundamental limits on simultaneous knowledge of certain pairs of quantities.", "Wave-particle duality applies to both matter and electromagnetic radiation.", "Electrons can exhibit interference patterns.", "Quantum tunneling allows particles to pass through classically forbidden energy barriers.", "Tunneling plays an important role in several physical and technological processes.", "The Pauli exclusion principle prevents identical fermions from occupying the same quantum state.", "Fermions include electrons, protons, and neutrons.", "Bosons include photons.", "The quantum state of a system contains information needed to calculate measurement probabilities.", "Superposition allows a quantum system to be represented as a combination of possible states.", "Measurement can produce one of the outcomes allowed by the quantum state.", "Entanglement can produce correlations that have no classical counterpart.", "Quantum information can be encoded in quantum states.", "A qubit can exist in a superposition of two basis states.", "Quantum error correction is essential for practical fault-tolerant quantum computing.", "Classical bits have two logical states.", "Logic gates manipulate binary information.", "Algorithms define systematic procedures for solving computational problems.", "Computational complexity describes how resource requirements scale with problem size.", "Some computational problems can be solved efficiently while others appear to require much greater resources.", "Sorting algorithms can arrange data according to a specified ordering.", "Hash functions map input data to fixed-size outputs.", "Cryptographic hash functions are designed to make certain inverse computations computationally difficult.", "Public-key cryptography uses mathematically related key pairs.", "Digital signatures can provide authenticity and integrity for digital messages.", "Encryption transforms readable information into a protected representation.", "Entropy is used in information theory to quantify uncertainty.", "Information can be compressed when data contains statistical redundancy.", "Lossless compression allows the original data to be reconstructed exactly.", "Lossy compression sacrifices some information to achieve greater size reduction.", "Machine learning systems learn patterns from data rather than relying entirely on explicitly programmed rules.", "Training adjusts model parameters using data.", "Overfitting occurs when a model learns training-specific patterns that do not generalize well.", "Regularization can reduce overfitting.", "Cross-validation can help estimate how a model generalizes to unseen data.", "Neural networks consist of interconnected computational units arranged in layers.", "Activation functions introduce nonlinear behavior into neural networks.", "Backpropagation efficiently computes gradients used for neural-network training.", "Gradient descent updates parameters in a direction intended to reduce a loss function.", "A loss function quantifies the discrepancy between predictions and desired outputs.", "Model parameters and hyperparameters play different roles during machine learning.", "Principal component analysis can reduce dimensionality while preserving directions of high variance.", "Clustering groups observations according to similarities in their features.", "Bayesian inference updates beliefs using evidence and prior information.", "A probability distribution describes how probability is assigned across possible outcomes.", "Conditional probability measures the likelihood of an event given another event.", "Independent events satisfy a specific mathematical relationship between their joint and individual probabilities.", "Correlation does not by itself establish causation.", "The law of large numbers describes convergence of sample averages under suitable conditions.", "The central limit theorem explains why many sample means approach a normal distribution under broad conditions.", "A confidence interval describes a procedure for estimating an unknown population parameter.", "A p-value measures compatibility between observed data and a specified null model.", "Statistical significance does not necessarily imply practical importance.", "Sampling bias can make a dataset systematically unrepresentative.", "Randomization can reduce certain sources of systematic bias in experiments.", "Replication helps assess whether an observed result is reproducible.", "Measurement uncertainty is an inherent part of experimental science.", "Significant figures communicate the precision of measured quantities.", "Dimensional analysis can reveal inconsistencies in physical equations.", "A differential equation relates a function to one or more of its derivatives.", "Many physical systems can be modeled using differential equations.", "Linear systems obey the principle of superposition.", "Eigenvalues and eigenvectors are fundamental concepts in linear algebra.", "Matrix multiplication represents composition of linear transformations.", "Determinants provide information about properties such as invertibility and volume scaling.", "Fourier analysis represents functions or signals using combinations of sinusoidal components.", "The Fourier transform is widely used in signal processing.", "Sampling converts continuous signals into discrete measurements.", "Sampling below an appropriate rate can cause aliasing.", "The Nyquist criterion provides a condition for avoiding aliasing in ideal band-limited sampling.", "Feedback is fundamental to many control systems.", "A stable control system returns toward an intended operating state after small disturbances.", "PID controllers combine proportional, integral, and derivative actions.", "Sensors convert physical quantities into measurable signals.", "Actuators convert control signals into physical actions.", "Robotics combines mechanics, electronics, sensing, and computation.", "Computer vision allows machines to extract information from images and video.", "Natural language processing deals with computational analysis and generation of human language.", "Large language models learn statistical patterns from large collections of text and other data.", "Databases organize information for efficient storage and retrieval.", "Indexing can substantially accelerate database queries.", "Relational databases represent data using tables and relationships.", "Distributed systems coordinate computation or storage across multiple machines.", "Network latency measures the delay involved in transmitting information.", "Bandwidth describes the rate at which information can be transmitted.", "Packet switching divides network data into packets that can be routed independently.", "The Internet is a network of interconnected networks.", "Domain Name System translates domain names into network addresses.", "Operating systems manage hardware resources and provide services for applications.", "Virtual memory allows systems to use storage as an extension of physical memory.", "Caches improve performance by keeping frequently accessed data closer to the processor.", "Modern processors execute instructions using complex pipelines and multiple execution units.", "Parallel computing divides work among multiple computational resources.", "GPUs are designed to perform many operations in parallel.", "Semiconductor transistors form the fundamental switching elements of modern digital electronics.", "Integrated circuits contain many electronic components on a small semiconductor substrate.", "Moore's law historically described a trend of increasing transistor density over time.", "Heat dissipation is a major engineering constraint in high-performance computing.", "Higher clock frequency does not necessarily mean proportionally higher overall processor performance.", "Materials can exhibit different electrical properties depending on temperature.", "Superconductors can exhibit zero electrical resistance below a critical temperature.", "Superconductors can expel magnetic fields through the Meissner effect.", "Some materials become magnetic because microscopic magnetic moments align.", "Ferromagnetism can persist after an external magnetic field is removed.", "Paramagnetic materials are weakly attracted to magnetic fields.", "Diamagnetic materials are weakly repelled by magnetic fields.", "Crystalline solids have ordered atomic or molecular arrangements.", "Amorphous solids lack long-range crystalline order.", "Grain boundaries can strongly influence material properties.", "Defects in crystal lattices can affect strength and electrical behavior.", "Alloying can change a material's mechanical and chemical properties.", "Stainless steel gains corrosion resistance partly from chromium.", "Carbon content strongly influences the properties of many steels.", "Ceramics generally withstand high temperatures but can be brittle.", "Polymers can have properties ranging from flexible to highly rigid.", "Composite materials combine different materials to obtain desirable properties.", "Nanomaterials can exhibit properties that differ from their bulk counterparts.", "Surface-area-to-volume ratio increases as characteristic size decreases.", "Catalytic nanoparticles can provide large active surface areas.", "Reaction mechanisms can be investigated using experimental rate laws.", "Isotope labeling can help trace atoms through chemical reaction pathways.", "Spectroscopy can provide information about molecular structure and composition.", "Infrared spectroscopy is particularly useful for identifying molecular vibrations.", "Nuclear magnetic resonance spectroscopy can reveal information about molecular environments.", "Mass spectrometry can determine molecular masses and fragmentation patterns.", "Chromatography separates components based on differences in their interactions with stationary and mobile phases.", "High-performance liquid chromatography can separate complex mixtures.", "Gas chromatography is useful for compounds that can be vaporized without excessive decomposition.", "Electrophoresis separates charged molecules according to their movement through a medium.", "X-ray diffraction can reveal the structure of crystalline materials.", "Bragg's law relates X-ray wavelength, crystal-plane spacing, and diffraction angle.", "Electron microscopy can resolve structures much smaller than those visible with ordinary light microscopy.", "Scanning electron microscopy primarily provides detailed surface information.", "Transmission electron microscopy can reveal internal ultrastructure at very high resolution.", "Atomic force microscopy can map surfaces using interactions between a probe and a sample.", "Crystallography can determine atomic arrangements in crystalline substances.", "Protein structure can be studied using techniques such as X-ray crystallography and nuclear magnetic resonance.", "Cryogenic electron microscopy can determine structures of large biological molecules.", "Gene sequencing determines the order of nucleotides in DNA.", "Polymerase chain reaction can amplify specific DNA sequences.", "Gel electrophoresis can separate DNA fragments according to size.", "CRISPR-based systems can be used to target specific genetic sequences.", "Gene regulation can involve transcription factors binding to regulatory DNA.", "Non-coding RNA molecules can participate in gene regulation.", "Alternative RNA splicing can produce different RNA molecules from the same gene.", "A single gene can sometimes contribute to multiple protein products.", "Protein function can depend on post-translational modifications.", "Phosphorylation can alter the activity or location of proteins.", "Ubiquitination can mark proteins for degradation or alter their cellular roles.", "Autophagy is a cellular process involved in degradation and recycling of cellular components.", "Apoptosis is a regulated form of programmed cell death.", "Mitochondria contain their own genetic material.", "The endosymbiotic theory proposes that mitochondria originated from ancient symbiotic bacteria.", "Chloroplasts also contain their own genetic material.", "Ribosomal RNA plays both structural and catalytic roles in ribosomes.", "Some RNA molecules can function as catalysts.", "The catalytic activity of RNA supports hypotheses about an early RNA-based stage of life.", "Horizontal gene transfer can move genetic material between organisms outside ordinary reproduction.", "Antibiotic resistance can spread through genetic mechanisms including horizontal gene transfer.", "Population genetics studies changes in allele frequencies over generations.", "Hardy-Weinberg equilibrium describes conditions under which allele frequencies remain constant.", "Genetic bottlenecks can reduce genetic diversity in populations.", "Founder effects can cause unusual allele frequencies in newly established populations.", "Natural selection can act differently on different traits within the same population.", "Evolution does not necessarily produce organisms that are perfectly adapted to every environment.", "Genetic drift has stronger effects in smaller populations.", "Speciation can occur when populations become reproductively isolated.", "Molecular clocks use genetic differences to estimate divergence times under appropriate assumptions.", "Phylogenetic trees represent hypotheses about evolutionary relationships.", "Ecosystems involve interactions between organisms and their physical environment.", "Energy generally flows through ecosystems rather than cycling indefinitely.", "Matter such as carbon and nitrogen cycles through ecosystems.", "Primary producers convert inorganic resources into organic matter.", "Decomposers play an important role in nutrient cycling.", "Nitrogen fixation converts atmospheric nitrogen into biologically usable forms.", "Eutrophication can result from excessive nutrient input into aquatic systems.", "Biodiversity can influence ecosystem stability and function.", "Ecological niches describe how organisms interact with their environment and resources.", "Carrying capacity represents the population size an environment can support under specified conditions.", "Differential equations can model population growth and interactions.", "The logistic growth model includes a carrying-capacity term.", "Predator-prey systems can exhibit oscillatory population dynamics.", "Chaos can arise in deterministic systems that are highly sensitive to initial conditions.", "The butterfly effect refers to sensitive dependence on initial conditions.", "Fractals can display similar structural patterns across different scales.", "Complex systems can exhibit emergent behavior arising from interactions among components.", "Phase transitions can produce abrupt changes in macroscopic properties.", "Critical points mark conditions where distinct phases become indistinguishable.", "Near critical points, fluctuations can occur over many length scales.", "Statistical mechanics connects microscopic particle behavior with macroscopic thermodynamic properties.", "The partition function contains information about the equilibrium properties of a statistical system.", "Boltzmann's constant connects microscopic energy scales with temperature.", "Quantum statistics distinguish particles according to their quantum properties.", "Bose-Einstein statistics apply to identical bosons.", "Fermi-Dirac statistics apply to identical fermions.", "The Fermi energy characterizes the highest occupied energy at absolute zero in an idealized fermion system.", "Degenerate matter can support extremely high pressures through quantum-mechanical effects.", "White dwarfs are supported against gravitational collapse largely by electron degeneracy pressure.", "Neutron stars are supported in part by pressure associated with extremely dense nuclear matter.", "General relativity describes gravity as the curvature of spacetime.", "Massive objects can bend the paths of light.", "Gravitational time dilation becomes stronger in stronger gravitational fields.", "Clocks at different gravitational potentials can measure different elapsed times.", "Special relativity predicts time dilation for objects moving at speeds close to the speed of light.", "No object with nonzero rest mass can be accelerated to the speed of light in vacuum.", "Relativistic mass-energy equivalence is expressed by the relation E = mc² for a body at rest.", "Conservation laws are closely connected to symmetries in physical theories.", "Noether's theorem links continuous symmetries with conservation laws.", "Gauge symmetry plays a central role in modern particle physics.", "The Standard Model describes fundamental particles and three of the four known fundamental interactions.", "The Higgs field is associated with the mechanism through which elementary particles acquire mass in the Standard Model.", "Quarks combine to form composite particles such as protons and neutrons.", "Protons and neutrons are composed of quarks bound by the strong interaction.", "The strong interaction is carried by particles called gluons.", "The electromagnetic interaction is mediated by photons.", "The weak interaction is responsible for processes including certain forms of radioactive decay.", "Neutrinos interact extremely weakly with ordinary matter.", "Experimental science relies on testable hypotheses, measurements, and reproducible evidence.", "A scientific explanation becomes stronger when independent observations and experiments consistently support it."];
+
+const ICONS=["\ud83d\udd2c", "\u269b\ufe0f", "\ud83e\uddec", "\ud83d\udca1", "\ud83c\udf0d", "\ud83d\ude80", "\ud83d\udd2d", "\u26a1", "\ud83e\uddea", "\ud83c\udf0a", "\ud83e\uddf2", "\ud83d\udcbb", "\ud83c\udf21\ufe0f", "\ud83d\udd0b", "\ud83e\udda0", "\ud83c\udf0c", "\u2697\ufe0f", "\ud83e\uddca", "\ud83c\udf31", "\ud83d\udce1"];
+let FI=Math.floor(Date.now()/864e5)%FACTS.length;
+function showFact(i){
+  FI=(i+FACTS.length)%FACTS.length;
+  const f=FACTS[FI];
+  const ft=document.getElementById('ft'),
+        fs=document.getElementById('ft-sub'),
+        fi=document.getElementById('ft-icon');
+  if(ft)ft.textContent=f;
+  if(fs)fs.textContent='FACT '+(FI+1)+' / '+FACTS.length;
+  if(fi)fi.textContent=ICONS[FI%ICONS.length];
+  try{sessionStorage.setItem('fi',FI)}catch(e){}
+}
+try{const s=sessionStorage.getItem('fi');if(s!==null)FI=+s}catch(e){}
+showFact(FI);
+const prev=document.getElementById('ft-prev'),next=document.getElementById('ft-next');
+if(prev)prev.onclick=()=>showFact(FI-1);
+if(next)next.onclick=()=>showFact(FI+1);
+
+/* ═══ THEME ENGINE ═══ */
+const root=document.documentElement;
+function applyTheme(m){
+  root.setAttribute('data-theme',m);
+  const btn=document.getElementById('tgt');
+  if(btn){btn.textContent=m==='dark'?'☀️':'🌙';btn.dataset.mode=m}
+  const meta=document.getElementById('csmeta');
+  if(meta)meta.content=m==='dark'?'dark':'light';
+  const pplink=document.getElementById('pplink');
+  try{if(typeof localStorage!=='undefined')localStorage.setItem('theme',m)}catch(e){}
+}
+function getPreferred(){try{const s=(typeof localStorage!=='undefined')&&localStorage.getItem('theme');if(s)return s}catch(e){}
+  return matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'}
+applyTheme(getPreferred());
+const tgt=document.getElementById('tgt');
+if(tgt)tgt.onclick=()=>applyTheme(root.dataset.theme==='dark'?'light':'dark');
+const mql=matchMedia('(prefers-color-scheme:light)');(mql.addEventListener||mql.addListener||function(){}).call(mql,'change',e=>{
+  try{if(!localStorage.getItem('theme'))applyTheme(e.matches?'light':'dark')}catch(e2){applyTheme(e.matches?'light':'dark')}
+});
+
+/* ═══ SPLASH SCREEN ═══ */
+const sp=document.getElementById('sp');let skip=false;
+try{skip=!!sessionStorage.getItem('sp')||!!localStorage.getItem('mubc_c')}catch(e){}
+if(sp){
+  const lg=document.querySelector('.brand img');
+  if(lg)document.getElementById('spl').src=lg.src;
+  if(skip)sp.remove();
+  else{
+    const t0=Date.now(),done=()=>setTimeout(()=>{
+      sp.classList.add('h');setTimeout(()=>sp.remove(),700);
+      try{sessionStorage.setItem('sp','1')}catch(e){}
+    },Math.max(0,900-(Date.now()-t0)));
+    Promise.race([
+      Promise.all([window.dataReady,new Promise(r=>document.readyState==='complete'?r():addEventListener('load',r,{once:true}))]),
+      new Promise(r=>setTimeout(r,3500))
+    ]).then(done)
+  }
+}
+
+/* ═══ SCROLL PROGRESS ═══ */
+const pg=document.getElementById('spg');
+addEventListener('scroll',()=>{
+  const doc=document.documentElement;
+  if(pg)pg.style.transform='scaleX('+(doc.scrollTop/((doc.scrollHeight-doc.clientHeight)||1))+')';
+},{passive:true});
+
+/* ═══ STAT COUNT-UP ═══ */
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&'IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(x=>{
+    if(!x.isIntersecting)return;io.unobserve(x.target);
+    const e=x.target,m=/^(\d+)(\D*)$/.exec(e.textContent.trim());
+    if(!m)return;const n=+m[1],t0=performance.now();
+    const u=t=>{const p=Math.min(1,(t-t0)/1200);e.textContent=Math.round(n*(1-Math.pow(1-p,3)))+m[2];if(p<1)requestAnimationFrame(u)};
+    requestAnimationFrame(u);
+  }),{threshold:.6});
+  document.querySelectorAll('.stat strong').forEach(e=>io.observe(e));
+}
+
+/* ═══ QUICK-NAV (Ctrl+K) ═══ */
+const pal=document.getElementById('pal'),pq=document.getElementById('pq'),pl=document.getElementById('pl');
+if(pal){
+  pal.addEventListener('click',e=>{if(e.target===pal)pal.close()});
+  const rp=()=>{const q=(pq.value||'').toLowerCase();pl.replaceChildren();
+    [...document.querySelectorAll('#menu a')].filter(a=>!a.closest('li').hidden)
+    .map(a=>[a.textContent,a.getAttribute('href')])
+    .filter(i=>i[0].toLowerCase().includes(q))
+    .forEach((i,k)=>{const a=document.createElement('a');a.textContent=i[0];a.href=i[1];if(!k)a.className='f';
+      a.onclick=()=>pal.close();if(i[1]==='#'){a.onclick=e=>{e.preventDefault();pal.close();const sb=document.getElementById('sb');if(sb)sb.click()}}
+      pl.append(a)})};
+  if(pq)pq.oninput=rp;
+  if(pq)pq.onkeydown=e=>{if(e.key==='Enter'){const a=pl.querySelector('a');if(a)a.click()}};
+  addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();pq.value='';rp();pal.showModal();pq.focus()}});
+}
+
+/* ═══ COUNTDOWN ═══ */
+const cd=document.getElementById('cd');
+window.__tk=function tk(){
+  let b=null;
+  try{(CT.event||[]).forEach(x=>{if(!/\d{4}/.test(x.f2))return;const t=Date.parse(x.f2);if(t>Date.now()&&(!b||t<b.t))b={t,n:x.f1}})}catch(e){}
+  if(!cd)return;if(!b){cd.hidden=true;return}
+  const s=Math.floor((b.t-Date.now())/6e4),d=Math.floor(s/1440),hh=Math.floor(s%1440/60);
+  cd.hidden=false;cd.textContent='NEXT: '+b.n.toUpperCase()+' · '+d+'D '+String(hh).padStart(2,'0')+'H '+String(s%60).padStart(2,'0')+'M';
+};
+window.__tk();setInterval(window.__tk,15000);
+
+/* ═══ STRUCTURED DATA UPDATER ═══ */
+window.__ld=function ld(){
+  try{const b=location.origin+location.pathname,g=[],q=(CT.faq||[]).filter(x=>x.f1&&x.f2);
+    if(q.length)g.push({'@type':'FAQPage',mainEntity:q.slice(0,30).map(x=>({'@type':'Question',name:x.f1,acceptedAnswer:{'@type':'Answer',text:x.f2}}))});
+    (CT.event||[]).filter(x=>/^\d{4}-\d{2}-\d{2}/.test(x.f2)).slice(0,20).forEach(x=>g.push({'@type':'Event',name:x.f1,startDate:x.f2,eventAttendanceMode:'https://schema.org/OfflineEventAttendanceMode',eventStatus:'https://schema.org/EventScheduled',location:{'@type':'Place',name:x.f3,address:x.f3},description:x.f4,organizer:{'@type':'Organization',name:'MUBC Science Club',url:b}}));
+    const sa=['facebook','instagram','github','linkedin'].map(k=>SET[k]).filter(u=>u&&/^https?:\/\//.test(u));
+    if(sa.length)g.push({'@type':'Organization',name:'MUBC Science Club',url:b,sameAs:sa});
+    let s=document.getElementById('ld-dyn');if(!g.length){if(s)s.remove();return}
+    if(!s){s=document.createElement('script');s.type='application/ld+json';s.id='ld-dyn';document.head.append(s)}
+    s.textContent=JSON.stringify({'@context':'https://schema.org','@graph':g})}catch(e){}
+};
+})();
 </script>
 </body>
 </html>
