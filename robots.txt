@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arman0977.github.io/mubc-science-club/sitemap.xml
